@@ -21,7 +21,4 @@ public class Discipline {
         return typeOfTheDiscipline;
     }
 
-    public void setTypeOfTheDiscipline(TypeOfTheDiscipline typeOfTheDiscipline) {
-        this.typeOfTheDiscipline = typeOfTheDiscipline;
-    }
 }

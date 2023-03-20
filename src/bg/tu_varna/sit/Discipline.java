@@ -20,4 +20,8 @@ public class Discipline {
     public TypeOfTheDiscipline getTypeOfTheDiscipline() {
         return typeOfTheDiscipline;
     }
+
+    public void setTypeOfTheDiscipline(TypeOfTheDiscipline typeOfTheDiscipline) {
+        this.typeOfTheDiscipline = typeOfTheDiscipline;
+    }
 }

@@ -1,32 +1,35 @@
 package bg.tu_varna.sit;
 
-import bg.tu_varna.sit.Enums.CourseEnum;
 import bg.tu_varna.sit.Enums.SpecialtyEnum;
 
 import java.util.Map;
 
-public class Specialty {
+public class Specialty{
     private SpecialtyEnum specialty;
-    private Map<Discipline, CourseEnum> disciplinesForSpecialtyMap;
+    private Map<Discipline, Integer> disciplinesForSpecialty;
 
-    public Specialty(SpecialtyEnum specialty, Map<Discipline, CourseEnum> disciplines) {
+        public Specialty(SpecialtyEnum specialty, Map<Discipline, Integer> disciplines) {
         this.specialty = specialty;
-        this.disciplinesForSpecialtyMap = disciplines;
+        this.disciplinesForSpecialty = disciplines;
     }
 
     public SpecialtyEnum getSpecialty() {
         return specialty;
     }
 
-    public Map<Discipline, CourseEnum> getDisciplinesForSpecialtyMap() {
-        return disciplinesForSpecialtyMap;
+    public Map<Discipline, Integer> getDisciplinesForSpecialtyMap() {
+        return disciplinesForSpecialty;
     }
 
-    public void AddElement(Discipline key, CourseEnum value){
+    public void AddElement(Discipline key, Integer value){
         this.getDisciplinesForSpecialtyMap().put(key,value);
     }
 
-    public void RemoveElement(Discipline key, CourseEnum value){
+    public void RemoveElement(Discipline key, Integer value){
         this.getDisciplinesForSpecialtyMap().remove(key,value);
+    }
+
+    public boolean containsDiscipline(Discipline discipline){
+            return getDisciplinesForSpecialtyMap().containsKey(discipline);
     }
 }

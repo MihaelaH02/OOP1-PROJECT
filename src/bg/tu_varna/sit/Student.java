@@ -5,15 +5,15 @@ import bg.tu_varna.sit.Enums.*;
 public class Student {
     private String name;
     private String facultyNumber;
-    private CourseEnum course;
-    private SpecialtyEnum specialty;
+    private int course;
+    private Specialty specialty;
     private int group;
     private StatusEnum status;
-    private double averageGrade;
+    private double averageGrade;//добави метод за пресмятане на успеха
 
     public Student() {}
 
-    public Student(String name, String facultyNumber, CourseEnum course, SpecialtyEnum specialty, int group, StatusEnum status,double averageGrade) {
+    public Student(String name, String facultyNumber, int course, Specialty specialty, int group, StatusEnum status,double averageGrade) {
         this.name = name;
         this.facultyNumber = facultyNumber;
         this.course = course;
@@ -31,11 +31,11 @@ public class Student {
         return facultyNumber;
     }
 
-    public CourseEnum getCourse() {
+    public int getCourse() {
         return course;
     }
 
-    public SpecialtyEnum getSpecialty() {
+    public Specialty getSpecialty() {
         return specialty;
     }
 

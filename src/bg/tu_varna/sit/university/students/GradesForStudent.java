@@ -1,6 +1,6 @@
 package bg.tu_varna.sit.university.students;
 
-import bg.tu_varna.sit.exeptions.InvalidEnteredDataExceptions;
+import bg.tu_varna.sit.exceptions.InvalidEnteredDataExceptions;
 import bg.tu_varna.sit.university.specialties.Discipline;
 import java.util.HashMap;
 import java.util.Map;
@@ -25,7 +25,5 @@ public class GradesForStudent {
     public void putElement(Discipline key, int value) throws InvalidEnteredDataExceptions {
         this.getDisciplinesWithGrade().put(key, value);
     }
-
-
 
 }

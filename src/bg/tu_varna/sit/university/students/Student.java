@@ -1,6 +1,6 @@
 package bg.tu_varna.sit.university.students;
 
-import bg.tu_varna.sit.exeptions.InvalidEnteredDataExceptions;
+import bg.tu_varna.sit.exceptions.InvalidEnteredDataExceptions;
 import bg.tu_varna.sit.university.enums.*;
 import bg.tu_varna.sit.university.specialties.Specialty;
 import bg.tu_varna.sit.verifications.VerifyCourse;
@@ -11,19 +11,19 @@ public class Student {
     private String name;
     private String facultyNumber;
     private int course;
-    private SpecialtyEnum specialty;
+    private Specialty specialty;
     private int group;
     private StatusEnum status;
     private double averageGrade;//добави метод за пресмятане на успеха
 
     public Student() {}
 
-    public Student(String name, String facultyNumber, int course, SpecialtyEnum specialty, int group, StatusEnum status) throws InvalidEnteredDataExceptions {
-        this.name = (new VerifyString(name)).getString();
-        this.facultyNumber = (new VerifyString(facultyNumber)).getString();
-        this.course = (new VerifyCourse(course)).getCourse();
+    public Student(String name, String facultyNumber, int course, Specialty specialty, int group, StatusEnum status) throws InvalidEnteredDataExceptions {
+        this.name = (new VerifyString().verifyString(name));
+        this.facultyNumber = (new VerifyString().verifyString(facultyNumber));
+        this.course = (new VerifyCourse().verifyCourse(course));
         this.specialty = specialty;
-        this.group = (new VerifyGroup(group)).getGroup();
+        this.group = (new VerifyGroup().verifyGroup(group));
         this.status = status;
         this.averageGrade=0;
     }
@@ -44,7 +44,7 @@ public class Student {
         this.course = course;
     }
 
-    public SpecialtyEnum getSpecialty() {
+    public Specialty getSpecialty() {
         return specialty;
     }
 
@@ -62,6 +62,6 @@ public class Student {
 
     @Override
     public String toString() {
-        return this.getName() + " " + this.getFacultyNumber() + " " + this.getCourse() + " " + this.getSpecialty().getSpecialtyEnum() + " " + this.getGroup() + " " + this.getStatus() + " " + this.getAverageGrade();
+        return this.getName() + " " + this.getFacultyNumber() + " " + this.getCourse() + " " + this.getSpecialty().getSpecialty().getSpecialtyEnum() + " " + this.getGroup() + " " + this.getStatus() + " " + this.getAverageGrade();
     }
 }

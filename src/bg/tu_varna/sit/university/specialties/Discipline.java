@@ -1,6 +1,6 @@
 package bg.tu_varna.sit.university.specialties;
 
-import bg.tu_varna.sit.exeptions.InvalidEnteredDataExceptions;
+import bg.tu_varna.sit.exceptions.InvalidEnteredDataExceptions;
 import bg.tu_varna.sit.university.enums.TypeOfTheDiscipline;
 import bg.tu_varna.sit.verifications.VerifyString;
 
@@ -11,7 +11,7 @@ public class Discipline {
     public Discipline() {}
 
     public Discipline(String name, TypeOfTheDiscipline typeOfTheDiscipline) throws InvalidEnteredDataExceptions{
-        this.name = (new VerifyString(name)).getString();
+        this.name = (new VerifyString().verifyString(name));
         this.typeOfTheDiscipline = typeOfTheDiscipline;
     }
 

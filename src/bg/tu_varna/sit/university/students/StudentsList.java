@@ -30,9 +30,7 @@ public class StudentsList {
 
     public void printArray(){
         for (GradesForStudent student : this.getAllStudents()) {
-            System.out.println(student.getStudent());
+            System.out.println(student.getDisciplinesWithGrade());
         }
     }
-
-
 }

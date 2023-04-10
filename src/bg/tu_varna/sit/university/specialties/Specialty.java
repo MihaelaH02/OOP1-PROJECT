@@ -1,6 +1,6 @@
 package bg.tu_varna.sit.university.specialties;
 
-import bg.tu_varna.sit.exeptions.InvalidEnteredDataExceptions;
+import bg.tu_varna.sit.exceptions.InvalidEnteredDataExceptions;
 import bg.tu_varna.sit.university.enums.SpecialtyEnum;
 import bg.tu_varna.sit.verifications.VerifyCourse;
 
@@ -11,10 +11,10 @@ public class Specialty{
     private final SpecialtyEnum specialty;
     private final Map<Discipline, Integer> disciplinesForSpecialty;
 
-        public Specialty(SpecialtyEnum specialty) {
-            this.specialty = specialty;
+    public Specialty(SpecialtyEnum specialty) {
+           this.specialty = specialty;
             this.disciplinesForSpecialty = new HashMap<>();
-        }
+    }
 
     public SpecialtyEnum getSpecialty() {
         return specialty;
@@ -25,15 +25,11 @@ public class Specialty{
     }
 
     public void AddElement(Discipline key, Integer value) throws InvalidEnteredDataExceptions {
-        this.getDisciplinesForSpecialtyMap().put(key,(new VerifyCourse(value)).getCourse());
+        this.getDisciplinesForSpecialtyMap().put(key,(new VerifyCourse().verifyCourse(value)));
     }
 
     public void RemoveElement(Discipline key, Integer value){
         this.getDisciplinesForSpecialtyMap().remove(key,value);
-    }
-
-    public boolean containsDiscipline(Discipline discipline){
-            return getDisciplinesForSpecialtyMap().containsKey(discipline);
     }
 
     public void printSpecialty() {

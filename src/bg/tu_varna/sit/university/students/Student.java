@@ -48,8 +48,16 @@ public class Student {
         return specialty;
     }
 
+    public void setSpecialty(Specialty specialty) {
+        this.specialty = specialty;
+    }
+
     public int getGroup() {
         return group;
+    }
+
+    public void setGroup(int group) {
+        this.group = group;
     }
 
     public StatusEnum getStatus() {

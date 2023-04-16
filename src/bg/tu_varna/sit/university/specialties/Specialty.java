@@ -20,21 +20,30 @@ public class Specialty{
         return specialty;
     }
 
-    public Map<Discipline, Integer> getDisciplinesForSpecialtyMap() {
+    public Map<Discipline, Integer> getMap() {
         return disciplinesForSpecialty;
     }
 
     public void AddElement(Discipline key, Integer value) throws InvalidEnteredDataExceptions {
-        this.getDisciplinesForSpecialtyMap().put(key,(new VerifyCourse().verifyCourse(value)));
+        this.getMap().put(key,(new VerifyCourse().verifyCourse(value)));
+    }
+
+    public Integer getValue(String key) throws InvalidEnteredDataExceptions{
+        for (Map.Entry<Discipline, Integer> entry : getMap().entrySet()) {
+            if (entry.getKey().getName().equals(key)) {
+                return entry.getValue();
+            }
+        }
+        throw new InvalidEnteredDataExceptions("Грешка! Дисциплината, която искате да достъпите не е налична!\"");
     }
 
     public void RemoveElement(Discipline key, Integer value){
-        this.getDisciplinesForSpecialtyMap().remove(key,value);
+        this.getMap().remove(key,value);
     }
 
     public void printSpecialty() {
         System.out.println("Специалност " + this.getSpecialty() + " :");
-        for (Map.Entry<Discipline, Integer> discipline : this.getDisciplinesForSpecialtyMap().entrySet()) {
+        for (Map.Entry<Discipline, Integer> discipline : this.getMap().entrySet()) {
             System.out.println(discipline.getKey().getName() + " в  " + discipline.getValue() + " курс\n");
         }
     }

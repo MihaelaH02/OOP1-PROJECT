@@ -6,7 +6,7 @@ import bg.tu_varna.sit.university.students.GetStudentWithFacultyNumber;
 import bg.tu_varna.sit.university.students.GradesForStudent;
 
 public class Advance {
-    public void ChangeCourse(String facultyNumber) throws InvalidEnteredDataExceptions {
+    public void AdvanceStudent(String facultyNumber) throws InvalidEnteredDataExceptions {
         GradesForStudent student = (new GetStudentWithFacultyNumber().findStudentWithFacultyNumber(facultyNumber));
         if(!(student.getStudent().getStatus()== StatusEnum.DISCONTINUED))
             student.getStudent().setCourse(student.getStudent().getCourse() + 1);

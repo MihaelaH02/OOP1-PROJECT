@@ -16,10 +16,9 @@ public class Application {
         sit.AddElement(new Discipline("Базово програмиране",TypeOfTheDiscipline.MANDATORY),1);
         StudentsList studentsInUniversity = StudentsList.getInstance();
         new Enroll().enrollStudent("21621562", sit,1,"Mihaela");
-        new Advance().ChangeCourse("21621562");
+        new Advance().AdvanceStudent("21621562");
         new EnrollIn().enrollInDiscipline("21621562","Математика 1");
-        new AddGrade().addGrade("21621562","Математика 1",5);
+        new AddGrade().addGrade("21621562","Математика 1",2);
         studentsInUniversity.printArray();
-
     }
 }

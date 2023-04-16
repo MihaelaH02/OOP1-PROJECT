@@ -14,7 +14,7 @@ public class GradesForStudent {
         disciplinesWithGrade = new HashMap<>();
     }
 
-    public Map<Discipline, Integer> getDisciplinesWithGrade() {
+    public Map<Discipline, Integer> getMap() {
         return disciplinesWithGrade;
     }
 
@@ -23,7 +23,7 @@ public class GradesForStudent {
     }
 
     public void putElement(Discipline key, int value) throws InvalidEnteredDataExceptions {
-        this.getDisciplinesWithGrade().put(key, value);
+        this.getMap().put(key, value);
     }
 
 }

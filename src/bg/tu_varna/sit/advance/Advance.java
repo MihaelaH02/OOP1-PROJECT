@@ -8,8 +8,9 @@ import bg.tu_varna.sit.university.students.GradesForStudent;
 public class Advance {
     public void AdvanceStudent(String facultyNumber) throws InvalidEnteredDataExceptions {
         GradesForStudent student = (new GetStudentWithFacultyNumber().findStudentWithFacultyNumber(facultyNumber));
-        if(!(student.getStudent().getStatus()== StatusEnum.DISCONTINUED))
+        if(student.getStudent().getCourse()==4) throw new InvalidEnteredDataExceptions("Грешка! Студенът е вече 4-ти курс!");
+        if(student.getStudent().getStatus()== StatusEnum.ENROLL)
             student.getStudent().setCourse(student.getStudent().getCourse() + 1);
-        else System.out.println("Грешка! Неуспешно преместване на студент в следващ курс, студен с факултете номер " + facultyNumber + " е прекъснал!");
+        else throw new InvalidEnteredDataExceptions("Грешка! Неуспешно преместване на студент в следващ курс, студен с факултете номер " + facultyNumber + " е прекъснал!");
     }
 }

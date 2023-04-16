@@ -1,34 +1,33 @@
 package bg.tu_varna.sit.university.specialties;
 
 import bg.tu_varna.sit.exceptions.InvalidEnteredDataExceptions;
-import bg.tu_varna.sit.university.enums.SpecialtyEnum;
 import bg.tu_varna.sit.verifications.VerifyCourse;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class Specialty{
-    private final SpecialtyEnum specialty;
+    private final String specialtyTitle;
     private final Map<Discipline, Integer> disciplinesForSpecialty;
 
-    public Specialty(SpecialtyEnum specialty) {
-           this.specialty = specialty;
+    public Specialty(String specialty) {
+           this.specialtyTitle = specialty;
             this.disciplinesForSpecialty = new HashMap<>();
     }
 
-    public SpecialtyEnum getSpecialty() {
-        return specialty;
+    public String getSpecialtyTitle() {
+        return specialtyTitle;
     }
 
     public Map<Discipline, Integer> getMap() {
         return disciplinesForSpecialty;
     }
 
-    public void AddElement(Discipline key, Integer value) throws InvalidEnteredDataExceptions {
+    public void addElement(Discipline key, Integer value) throws InvalidEnteredDataExceptions {
         this.getMap().put(key,(new VerifyCourse().verifyCourse(value)));
     }
 
-    public Integer getValue(String key) throws InvalidEnteredDataExceptions{
+    public Integer getValue(java.lang.String key) throws InvalidEnteredDataExceptions{
         for (Map.Entry<Discipline, Integer> entry : getMap().entrySet()) {
             if (entry.getKey().getName().equals(key)) {
                 return entry.getValue();
@@ -37,12 +36,12 @@ public class Specialty{
         throw new InvalidEnteredDataExceptions("Грешка! Дисциплината, която искате да достъпите не е налична!\"");
     }
 
-    public void RemoveElement(Discipline key, Integer value){
+    public void removeElement(Discipline key, Integer value){
         this.getMap().remove(key,value);
     }
 
     public void printSpecialty() {
-        System.out.println("Специалност " + this.getSpecialty() + " :");
+        System.out.println("Специалност " + this.getSpecialtyTitle() + " :");
         for (Map.Entry<Discipline, Integer> discipline : this.getMap().entrySet()) {
             System.out.println(discipline.getKey().getName() + " в  " + discipline.getValue() + " курс\n");
         }

@@ -64,12 +64,16 @@ public class Student {
         return status;
     }
 
+    public void setStatus(StatusEnum status) {
+        this.status = status;
+    }
+
     public double getAverageGrade() {
         return averageGrade;
     }
 
     @Override
     public String toString() {
-        return this.getName() + " " + this.getFacultyNumber() + " " + this.getCourse() + " " + this.getSpecialty().getSpecialty().getSpecialtyEnum() + " " + this.getGroup() + " " + this.getStatus() + " " + this.getAverageGrade();
+        return this.getName() + " " + this.getFacultyNumber() + " " + this.getCourse() + " " + this.getSpecialty().getSpecialtyTitle() + " " + this.getGroup() + " " + this.getStatus() + " " + this.getAverageGrade();
     }
 }

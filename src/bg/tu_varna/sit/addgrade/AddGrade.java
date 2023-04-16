@@ -10,7 +10,7 @@ import bg.tu_varna.sit.verifications.VerifyGrade;
 public class AddGrade {
     public void addGrade(String facultyNumber,String discipline, int garde) throws InvalidEnteredDataExceptions {
         GradesForStudent student = (new GetStudentWithFacultyNumber().findStudentWithFacultyNumber(facultyNumber));
-        if(!(student.getStudent().getStatus() == StatusEnum.DISCONTINUED))
+        if(student.getStudent().getStatus() == StatusEnum.ENROLL)
             student.putElement(new GetDiscipline().getDisciplineFromSpecialty(discipline,student.getMap()),new VerifyGrade().verifyGrade(garde));
         else
             System.out.println("Грешка! Неуспешно преместване на студент в следващ курс, студен с факултете номер " + facultyNumber + " е прекъснал!");

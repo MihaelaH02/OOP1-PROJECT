@@ -7,14 +7,13 @@ import bg.tu_varna.sit.verifications.VerifyCourse;
 import bg.tu_varna.sit.verifications.VerifyGroup;
 import bg.tu_varna.sit.verifications.VerifyString;
 
-public class Student {
+public class Student{
     private String name;
     private String facultyNumber;
     private int course;
     private Specialty specialty;
     private int group;
     private StatusEnum status;
-    private double averageGrade;//добави метод за пресмятане на успеха
 
     public Student() {}
 
@@ -25,7 +24,6 @@ public class Student {
         this.specialty = specialty;
         this.group = (new VerifyGroup().verifyGroup(group));
         this.status = status;
-        this.averageGrade=0;
     }
 
     public String getName() {
@@ -68,12 +66,8 @@ public class Student {
         this.status = status;
     }
 
-    public double getAverageGrade() {
-        return averageGrade;
-    }
-
     @Override
     public String toString() {
-        return this.getName() + " " + this.getFacultyNumber() + " " + this.getCourse() + " " + this.getSpecialty().getSpecialtyTitle() + " " + this.getGroup() + " " + this.getStatus() + " " + this.getAverageGrade();
+        return  "Име: " + this.getName() + ", фн: " + this.getFacultyNumber() + ", статус: " + this.getStatus().getStatusEnum() + ", специалност: " + this.getSpecialty().getSpecialtyTitle() + ", курс: " + this.getCourse() + ", група: " + this.getGroup();
     }
 }

@@ -1,4 +1,4 @@
-package bg.tu_varna.sit.enroll;
+package bg.tu_varna.sit.operations.enroll;
 
 import bg.tu_varna.sit.exceptions.InvalidEnteredDataExceptions;
 import bg.tu_varna.sit.university.enums.StatusEnum;

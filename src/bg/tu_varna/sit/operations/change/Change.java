@@ -1,6 +1,6 @@
-package bg.tu_varna.sit.change;
+package bg.tu_varna.sit.operations.change;
 
-import bg.tu_varna.sit.advance.Advance;
+import bg.tu_varna.sit.operations.advance.Advance;
 import bg.tu_varna.sit.exceptions.InvalidEnteredDataExceptions;
 import bg.tu_varna.sit.university.CheckIfStudentIsEnrollAllTheDisciplinesForTheCourse;
 import bg.tu_varna.sit.university.enums.StatusEnum;

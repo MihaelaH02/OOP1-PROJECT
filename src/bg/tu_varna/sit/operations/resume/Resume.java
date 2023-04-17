@@ -1,4 +1,4 @@
-package bg.tu_varna.sit.resume;
+package bg.tu_varna.sit.operations.resume;
 
 import bg.tu_varna.sit.exceptions.InvalidEnteredDataExceptions;
 import bg.tu_varna.sit.university.enums.StatusEnum;

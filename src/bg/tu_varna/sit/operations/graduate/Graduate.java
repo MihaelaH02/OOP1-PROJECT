@@ -1,4 +1,4 @@
-package bg.tu_varna.sit.graduate;
+package bg.tu_varna.sit.operations.graduate;
 
 import bg.tu_varna.sit.exceptions.InvalidEnteredDataExceptions;
 import bg.tu_varna.sit.university.CheckIfStudentIsEnrollAllTheDisciplinesForTheCourse;
@@ -13,6 +13,7 @@ public class Graduate {
             if(student.getStudent().getCourse() == 4){
                 new CheckIfStudentIsEnrollAllTheDisciplinesForTheCourse().checkForEnrollingAllTheDisciplinesForTheCourse(student,student.getStudent().getSpecialty());
                 student.getStudent().setStatus(StatusEnum.GRADUATED);
-        }
+            }
+        else throw new InvalidEnteredDataExceptions("Грешка! Студентът не е достигнал необходимия курс за да завърши!");
     }
 }

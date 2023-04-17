@@ -25,9 +25,6 @@ public class SpecialtyList {
         this.allSpecialties.add(specialty);
     }
 
-    public void removeElement(Specialty specialty) {
-        this.allSpecialties.remove(specialty);
-    }
 
     public void printArray(){
         for (Specialty specialty : this.getAllSpecialties()) {

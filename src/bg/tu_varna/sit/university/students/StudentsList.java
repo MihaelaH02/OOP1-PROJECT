@@ -28,9 +28,7 @@ public class StudentsList {
         this.allStudents.remove(student);
     }
 
-    public void printArray(){
-        for (GradesForStudent student : this.getAllStudents()) {
-            System.out.println(student.getMap());
-        }
+    public void printArray() {
+        //
     }
 }

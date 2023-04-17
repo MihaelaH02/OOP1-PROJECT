@@ -2,6 +2,8 @@ package bg.tu_varna.sit.university.students;
 
 import bg.tu_varna.sit.exceptions.InvalidEnteredDataExceptions;
 import bg.tu_varna.sit.university.specialties.Discipline;
+import bg.tu_varna.sit.verifications.VerifyGrade;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -23,7 +25,21 @@ public class GradesForStudent {
     }
 
     public void putElement(Discipline key, int value) throws InvalidEnteredDataExceptions {
+        new VerifyGrade().verifyGrade(value);
         this.getMap().put(key, value);
     }
 
+    public String toString(){
+        System.out.println("Записани дисциплини:");
+        StringBuilder string = new StringBuilder();
+        for (Map.Entry<Discipline, Integer> discipline: this.getMap().entrySet()  ) {
+           string.append(discipline.getKey().getName())
+                   .append(" - ")
+                   .append(discipline.getKey().getTypeOfTheDiscipline().getTypeOfDisciplineEnum())
+                   .append(" - ")
+                   .append(discipline.getValue())
+                   .append("\n");
+        }
+        return string.toString();
+    }
 }

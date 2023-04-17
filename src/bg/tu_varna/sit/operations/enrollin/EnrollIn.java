@@ -1,4 +1,4 @@
-package bg.tu_varna.sit.enrollin;
+package bg.tu_varna.sit.operations.enrollin;
 
 import bg.tu_varna.sit.exceptions.InvalidEnteredDataExceptions;
 import bg.tu_varna.sit.university.enums.StatusEnum;
@@ -13,7 +13,7 @@ public class EnrollIn {
         Discipline disciplineFromSpecialty=new GetDiscipline().getDisciplineFromSpecialty(discipline,student.getStudent().getSpecialty().getMap());
         if(student.getStudent().getStatus() == StatusEnum.ENROLL) {
             if (student.getStudent().getCourse() == student.getStudent().getSpecialty().getValue(disciplineFromSpecialty.getName()))
-                student.putElement(disciplineFromSpecialty, 0);
+                student.putElement(disciplineFromSpecialty, 2);
             else throw new InvalidEnteredDataExceptions("Грешка! Дисциплината, която искате да добавите, не се изучава в настоящият Ви курс!");
         }
         else throw new InvalidEnteredDataExceptions ("Грешка! Неуспешно добавяне на дисциплина, студент с факултете номер " + facultyNumber + " е прекъснал!");

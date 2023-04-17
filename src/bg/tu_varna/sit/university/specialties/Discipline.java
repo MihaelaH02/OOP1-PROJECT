@@ -25,6 +25,6 @@ public class Discipline {
 
     @Override
     public String toString() {
-        return this.getName() + " - " + this.getTypeOfTheDiscipline();
+        return this.getName() + " - " + this.getTypeOfTheDiscipline().getTypeOfDisciplineEnum();
     }
 }

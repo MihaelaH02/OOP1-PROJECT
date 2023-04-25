@@ -8,7 +8,7 @@ public class GetSpecialtyWithTitle {
         new VerifyString().verifyString(specialty);
         SpecialtyList specialtyList = SpecialtyList.getInstance();
         for (Specialty oneSpecialty : specialtyList.getAllSpecialties()) {
-            if(oneSpecialty.getSpecialtyTitle() .equals(specialty)) return oneSpecialty;
+            if(oneSpecialty.getSpecialtyTitle() .equals(specialty.toUpperCase())) return oneSpecialty;
         }
         throw new InvalidEnteredDataExceptions("Грешка! Специалността, която търсите не е намерена!");
     }

@@ -4,7 +4,6 @@ import bg.tu_varna.sit.exceptions.InvalidEnteredDataExceptions;
 import bg.tu_varna.sit.university.enums.StatusEnum;
 import bg.tu_varna.sit.university.students.GetStudentWithFacultyNumber;
 import bg.tu_varna.sit.university.students.GradesForStudent;
-import bg.tu_varna.sit.verifications.VerifyCourse;
 
 public class Advance {
     public void AdvanceStudent(String facultyNumber) throws InvalidEnteredDataExceptions {

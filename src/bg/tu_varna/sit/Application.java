@@ -1,9 +1,6 @@
 package bg.tu_varna.sit;
 
 import bg.tu_varna.sit.commands.SwitchCommands;
-import bg.tu_varna.sit.operations.addgrade.AddGrade;
-import bg.tu_varna.sit.operations.enroll.Enroll;
-import bg.tu_varna.sit.operations.enrollin.EnrollIn;
 import bg.tu_varna.sit.exceptions.InvalidEnteredDataExceptions;
 import bg.tu_varna.sit.university.enums.*;
 import bg.tu_varna.sit.university.specialties.*;
@@ -23,9 +20,9 @@ public class Application {
         SpecialtyList specialtiesInUniversity = SpecialtyList.getInstance();
         specialtiesInUniversity.addElement(sit);
         specialtiesInUniversity.addElement(kst);
-        String input=scanner.nextLine();
+        //*String input=scanner.nextLine();
         SwitchCommands commands=new SwitchCommands();
-        commands.runCommand(input);
+        commands.runCommand(args);
        /* new Enroll().enrollStudent("21621563","КСТ",1,"Ivan");
         new Enroll().enrollStudent("21621561","СИТ",2,"Ivana");
 

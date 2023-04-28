@@ -13,17 +13,18 @@ import bg.tu_varna.sit.operations.printall.PrintAll;
 import bg.tu_varna.sit.operations.protocol.Protocol;
 import bg.tu_varna.sit.operations.report.Report;
 import bg.tu_varna.sit.operations.resume.Resume;
+import bg.tu_varna.sit.verifications.VerifyGroup;
 
 import java.util.Scanner;
 
 public class SwitchCommands implements RunCommand {
-    public void runCommand(String command) throws InvalidEnteredDataExceptions{
-        Scanner scanner = new Scanner(System.in);
-        CommandsEnum commandsEnum=CommandsEnum.valueOf(command.toUpperCase());
+    public void runCommand(String[] command) throws InvalidEnteredDataExceptions{
+        //Scanner scanner = new Scanner(System.in);
+        CommandsEnum commandsEnum=CommandsEnum.valueOf(command[0].toUpperCase());
         switch (commandsEnum) {
 
             case ENROLL -> {
-                System.out.println("Факултетен номер: ");
+                /*System.out.println("Факултетен номер: ");
                 String fn = scanner.nextLine();
                 System.out.println("Специалност: ");
                 String program = scanner.nextLine();
@@ -31,11 +32,11 @@ public class SwitchCommands implements RunCommand {
                 int group = scanner.nextInt();
                 scanner.nextLine();
                 System.out.println("Име: ");
-                String name = scanner.nextLine();
-                new Enroll().enrollStudent(fn, program, group, name);
+                String name = scanner.nextLine();*/
+                new Enroll().enrollStudent(command[1],command[2],Integer.parseInt(command[3]), command[4]);
             }
 
-            case ADVANCE->{
+            /*case ADVANCE->{
                 System.out.println("Факултетен номер: ");
                 String fn = scanner.nextLine();
                 new Advance().AdvanceStudent(fn);
@@ -111,7 +112,7 @@ public class SwitchCommands implements RunCommand {
                 System.out.println("Факултетен номер: ");
                 String fn = scanner.nextLine();
                 new Report().reportStudent(fn);
-            }
+            }*/
 
             default ->
                 throw new InvalidEnteredDataExceptions("Грешка! Въведена е навилидна операция!");

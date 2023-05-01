@@ -2,8 +2,8 @@ package bg.tu_varna.sit.operations.report;
 
 import bg.tu_varna.sit.exceptions.InvalidEnteredDataExceptions;
 import bg.tu_varna.sit.university.specialties.Discipline;
-import bg.tu_varna.sit.university.CalculateAverageGrade;
-import bg.tu_varna.sit.university.students.GetStudentWithFacultyNumber;
+import bg.tu_varna.sit.university.get_data.CalculateAverageGrade;
+import bg.tu_varna.sit.university.get_data.GetStudentWithFacultyNumber;
 import bg.tu_varna.sit.university.students.GradesForStudent;
 
 import java.util.ArrayList;

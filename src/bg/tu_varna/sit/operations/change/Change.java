@@ -2,11 +2,11 @@ package bg.tu_varna.sit.operations.change;
 
 import bg.tu_varna.sit.operations.advance.Advance;
 import bg.tu_varna.sit.exceptions.InvalidEnteredDataExceptions;
-import bg.tu_varna.sit.university.CheckIfStudentIsEnrollAllTheDisciplinesForTheCourse;
+import bg.tu_varna.sit.university.get_data.CheckIfStudentIsEnrollAllTheDisciplinesForTheCourse;
 import bg.tu_varna.sit.university.enums.StatusEnum;
-import bg.tu_varna.sit.university.specialties.GetSpecialtyWithTitle;
+import bg.tu_varna.sit.university.get_data.GetSpecialtyWithTitle;
 import bg.tu_varna.sit.university.specialties.Specialty;
-import bg.tu_varna.sit.university.students.GetStudentWithFacultyNumber;
+import bg.tu_varna.sit.university.get_data.GetStudentWithFacultyNumber;
 import bg.tu_varna.sit.university.students.GradesForStudent;
 import bg.tu_varna.sit.verifications.VerifyCourse;
 import bg.tu_varna.sit.verifications.VerifyGroup;

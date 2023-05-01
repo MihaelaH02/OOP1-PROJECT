@@ -1,7 +1,7 @@
 package bg.tu_varna.sit.operations.printall;
 
 import bg.tu_varna.sit.exceptions.InvalidEnteredDataExceptions;
-import bg.tu_varna.sit.university.specialties.GetSpecialtyWithTitle;
+import bg.tu_varna.sit.university.get_data.GetSpecialtyWithTitle;
 import bg.tu_varna.sit.university.students.GradesForStudent;
 import bg.tu_varna.sit.university.students.StudentsList;
 import bg.tu_varna.sit.verifications.VerifyCourse;

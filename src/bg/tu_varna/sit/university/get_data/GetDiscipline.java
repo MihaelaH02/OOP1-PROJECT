@@ -1,6 +1,7 @@
-package bg.tu_varna.sit.university.specialties;
+package bg.tu_varna.sit.university.get_data;
 
 import bg.tu_varna.sit.exceptions.InvalidEnteredDataExceptions;
+import bg.tu_varna.sit.university.specialties.Discipline;
 import bg.tu_varna.sit.verifications.VerifyString;
 
 import java.util.Map;

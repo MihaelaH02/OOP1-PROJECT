@@ -28,7 +28,4 @@ public class StudentsList {
         this.allStudents.remove(student);
     }
 
-    public void printArray() {
-        //
-    }
 }

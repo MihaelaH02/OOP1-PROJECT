@@ -3,8 +3,8 @@ package bg.tu_varna.sit.operations.enrollin;
 import bg.tu_varna.sit.exceptions.InvalidEnteredDataExceptions;
 import bg.tu_varna.sit.university.enums.StatusEnum;
 import bg.tu_varna.sit.university.specialties.Discipline;
-import bg.tu_varna.sit.university.specialties.GetDiscipline;
-import bg.tu_varna.sit.university.students.GetStudentWithFacultyNumber;
+import bg.tu_varna.sit.university.get_data.GetDiscipline;
+import bg.tu_varna.sit.university.get_data.GetStudentWithFacultyNumber;
 import bg.tu_varna.sit.university.students.GradesForStudent;
 
 public class EnrollIn {

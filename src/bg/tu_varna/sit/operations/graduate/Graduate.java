@@ -1,9 +1,9 @@
 package bg.tu_varna.sit.operations.graduate;
 
 import bg.tu_varna.sit.exceptions.InvalidEnteredDataExceptions;
-import bg.tu_varna.sit.university.CheckIfStudentIsEnrollAllTheDisciplinesForTheCourse;
+import bg.tu_varna.sit.university.get_data.CheckIfStudentIsEnrollAllTheDisciplinesForTheCourse;
 import bg.tu_varna.sit.university.enums.StatusEnum;
-import bg.tu_varna.sit.university.students.GetStudentWithFacultyNumber;
+import bg.tu_varna.sit.university.get_data.GetStudentWithFacultyNumber;
 import bg.tu_varna.sit.university.students.GradesForStudent;
 
 public class Graduate {

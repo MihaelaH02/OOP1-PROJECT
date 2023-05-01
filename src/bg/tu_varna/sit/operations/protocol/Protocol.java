@@ -4,11 +4,13 @@ import bg.tu_varna.sit.university.specialties.Discipline;
 import bg.tu_varna.sit.university.students.GradesForStudent;
 import bg.tu_varna.sit.university.students.StudentsList;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Protocol {
     public void protocolForDiscipline(String discipline) {
         StudentsList studentsList = StudentsList.getInstance();
-        ArrayList<GradesForStudent> studentsEnrolledInDiscipline = new ArrayList<>();
+
+        List<GradesForStudent> studentsEnrolledInDiscipline = new ArrayList<>();
         for (GradesForStudent oneStudentInArray : studentsList.getAllStudents()) {
             if (!oneStudentInArray.getMap().isEmpty())
                 for (Discipline enrolledDisciplineForStudent : oneStudentInArray.getMap().keySet()) {
@@ -18,9 +20,8 @@ public class Protocol {
                     }
                 }
         }
-        //studentsEnrolledInDiscipline.sort(new Comparator());
-        for (GradesForStudent student: studentsEnrolledInDiscipline) {
-            System.out.println(student.getStudent().toString());
-        }
+        System.out.println("Протоколи за дисциплина: " + discipline);
+        studentsEnrolledInDiscipline.sort(new ListComparator());
+        new PrintProtocols().printProtocols(studentsEnrolledInDiscipline);
     }
 }

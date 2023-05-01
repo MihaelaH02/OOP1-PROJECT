@@ -19,7 +19,6 @@ import java.util.Scanner;
 
 public class SwitchCommands implements RunCommand {
     public void runCommand(String[] command) throws InvalidEnteredDataExceptions{
-        //Scanner scanner = new Scanner(System.in);
         CommandsEnum commandsEnum=CommandsEnum.valueOf(command[0].toUpperCase());
         switch (commandsEnum) {
 

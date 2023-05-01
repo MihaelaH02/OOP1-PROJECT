@@ -1,4 +1,4 @@
-package bg.tu_varna.sit.university;
+package bg.tu_varna.sit.university.get_data;
 
 import bg.tu_varna.sit.university.specialties.Discipline;
 

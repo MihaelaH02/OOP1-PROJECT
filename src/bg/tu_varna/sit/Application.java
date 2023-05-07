@@ -1,6 +1,5 @@
 package bg.tu_varna.sit;
 
-import bg.tu_varna.sit.commands.SwitchCommands;
 import bg.tu_varna.sit.exceptions.InvalidEnteredDataExceptions;
 import bg.tu_varna.sit.operations.addgrade.AddGrade;
 import bg.tu_varna.sit.operations.advance.Advance;
@@ -9,11 +8,14 @@ import bg.tu_varna.sit.operations.enrollin.EnrollIn;
 import bg.tu_varna.sit.operations.protocol.Protocol;
 import bg.tu_varna.sit.university.enums.*;
 import bg.tu_varna.sit.university.specialties.*;
+import bg.tu_varna.sit.xml_file.write.Write;
 
-import java.util.Scanner;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerException;
+
 
 public class Application {
-    public static void main(java.lang.String[] args) throws InvalidEnteredDataExceptions {
+    public static void main(String[] args) throws InvalidEnteredDataExceptions, ParserConfigurationException, TransformerException {
         Specialty sit = new Specialty("СИТ");
         sit.addElement(new Discipline("Математика 1", TypeOfTheDiscipline.MANDATORY),1);
         sit.addElement(new Discipline("Базово програмиране",TypeOfTheDiscipline.MANDATORY),1);
@@ -46,5 +48,7 @@ public class Application {
         new Advance().AdvanceStudent("21621562");
 
         new Protocol().protocolForDiscipline("Математика 1");
+
+        new Write().write();
     }
 }

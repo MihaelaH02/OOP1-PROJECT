@@ -20,6 +20,7 @@ import java.util.Map;
 public class Write {
     public void write() throws ParserConfigurationException, TransformerException {
         StudentsList studentsList = StudentsList.getInstance();
+
         DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
         Document doc = docBuilder.newDocument();
@@ -72,7 +73,7 @@ public class Write {
 
                 Element type = doc.createElement("type");
                 type.appendChild(doc.createTextNode(disciplineWithGradeMap.getKey().getTypeOfTheDiscipline().getTypeOfDisciplineEnum()));
-                discipline.appendChild(title);
+                discipline.appendChild(type);
 
                 Element grade = doc.createElement("grade");
                 disciplinesWithGrade.appendChild(grade);
@@ -85,7 +86,7 @@ public class Write {
         TransformerFactory transformerFactory = TransformerFactory.newInstance();
         Transformer transformer = transformerFactory.newTransformer();
         DOMSource domSource = new DOMSource(doc);
-        StreamResult streamResult = new StreamResult(new File("C:\\Users\\MIHAELA\\Desktop\\University.xml"));
+        StreamResult streamResult = new StreamResult(new File("C:\\Users\\MIHAELA\\Desktop\\OOP1-PROJECT\\University.xml"));
 
         transformer.transform(domSource, streamResult);
         System.out.println("Done creating XML File");

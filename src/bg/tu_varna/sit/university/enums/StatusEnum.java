@@ -7,7 +7,7 @@ public enum StatusEnum {
 
     private final String statusEnum;
 
-    private StatusEnum(String statusEnum) {
+    StatusEnum(String statusEnum) {
         this.statusEnum = statusEnum;
     }
 

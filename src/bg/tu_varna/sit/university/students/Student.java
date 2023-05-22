@@ -4,9 +4,9 @@ import bg.tu_varna.sit.exceptions.InvalidEnteredDataExceptions;
 import bg.tu_varna.sit.university.enums.*;
 import bg.tu_varna.sit.university.get_data.GetSpecialtyWithTitle;
 import bg.tu_varna.sit.university.specialties.Specialty;
-import bg.tu_varna.sit.verifications.VerifyCourse;
-import bg.tu_varna.sit.verifications.VerifyGroup;
-import bg.tu_varna.sit.verifications.VerifyString;
+import bg.tu_varna.sit.university.verifications.VerifyCourse;
+import bg.tu_varna.sit.university.verifications.VerifyGroup;
+import bg.tu_varna.sit.university.verifications.VerifyString;
 
 public class Student{
     private String name;

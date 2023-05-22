@@ -1,8 +1,8 @@
 package bg.tu_varna.sit.university.enums;
 
 public enum TypeOfTheDiscipline {
-    MANDATORY("задължителена"),
-    OPTIONAL("избираема");
+    MANDATORY("mandatory"),
+    OPTIONAL("optional");
 
     private final String typeOfDisciplineEnum;
 

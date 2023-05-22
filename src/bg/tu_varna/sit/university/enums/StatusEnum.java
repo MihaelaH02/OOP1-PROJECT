@@ -1,9 +1,9 @@
 package bg.tu_varna.sit.university.enums;
 
 public enum StatusEnum {
-    ENROLL("записан"),
-    DISCONTINUED("прекъснал"),
-    GRADUATED("завършил");
+    ENROLL("enroll"),
+    DISCONTINUED("discontinued"),
+    GRADUATED("graduate");
 
     private final String statusEnum;
 

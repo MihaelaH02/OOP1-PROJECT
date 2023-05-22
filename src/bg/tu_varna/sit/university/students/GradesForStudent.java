@@ -2,7 +2,7 @@ package bg.tu_varna.sit.university.students;
 
 import bg.tu_varna.sit.exceptions.InvalidEnteredDataExceptions;
 import bg.tu_varna.sit.university.specialties.Discipline;
-import bg.tu_varna.sit.verifications.VerifyGrade;
+import bg.tu_varna.sit.university.verifications.VerifyGrade;
 
 import java.util.HashMap;
 import java.util.Map;

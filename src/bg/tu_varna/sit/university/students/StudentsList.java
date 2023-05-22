@@ -16,6 +16,10 @@ public class StudentsList {
         return instance;
     }
 
+    public static void setInstance(StudentsList instance) {
+        StudentsList.instance = instance;
+    }
+
     public List<GradesForStudent> getAllStudents() {
         return allStudents;
     }

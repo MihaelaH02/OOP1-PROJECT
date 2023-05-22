@@ -1,112 +1,73 @@
 package bg.tu_varna.sit.commands;
 
+import bg.tu_varna.sit.commands.operations.xml_file.Close;
+import bg.tu_varna.sit.commands.operations.xml_file.Open;
+import bg.tu_varna.sit.commands.operations.xml_file.Write;
 import bg.tu_varna.sit.exceptions.InvalidEnteredDataExceptions;
-import bg.tu_varna.sit.operations.addgrade.AddGrade;
-import bg.tu_varna.sit.operations.advance.Advance;
-import bg.tu_varna.sit.operations.change.Change;
-import bg.tu_varna.sit.operations.enroll.Enroll;
-import bg.tu_varna.sit.operations.enrollin.EnrollIn;
-import bg.tu_varna.sit.operations.graduate.Graduate;
-import bg.tu_varna.sit.operations.interrupt.Interrupt;
-import bg.tu_varna.sit.operations.print.Print;
-import bg.tu_varna.sit.operations.printall.PrintAll;
-import bg.tu_varna.sit.operations.protocol.Protocol;
-import bg.tu_varna.sit.operations.report.Report;
-import bg.tu_varna.sit.operations.resume.Resume;
-
-import java.util.Scanner;
+import bg.tu_varna.sit.commands.operations.addgrade.AddGrade;
+import bg.tu_varna.sit.commands.operations.advance.Advance;
+import bg.tu_varna.sit.commands.operations.change.Change;
+import bg.tu_varna.sit.commands.operations.enroll.Enroll;
+import bg.tu_varna.sit.commands.operations.enrollin.EnrollIn;
+import bg.tu_varna.sit.commands.operations.graduate.Graduate;
+import bg.tu_varna.sit.commands.operations.interrupt.Interrupt;
+import bg.tu_varna.sit.commands.operations.print.Print;
+import bg.tu_varna.sit.commands.operations.printall.PrintAll;
+import bg.tu_varna.sit.commands.operations.protocol.Protocol;
+import bg.tu_varna.sit.commands.operations.report.Report;
+import bg.tu_varna.sit.commands.operations.resume.Resume;
 
 public class SwitchCommands implements RunCommand {
-    public void runCommand(String[] command) throws InvalidEnteredDataExceptions{
-        CommandsEnum commandsEnum=CommandsEnum.valueOf(command[0].toUpperCase());
-        switch (commandsEnum) {
+    private static boolean openFile=false;
+    private static String pathFile;
+    public void runCommand(String[] command) throws Exception {
+        CommandsEnum commandsEnum = CommandsEnum.valueOf(command[0].toUpperCase());
+        if (commandsEnum == CommandsEnum.OPEN) {
+            pathFile = command[1];
+            new Open().open(pathFile);
+            openFile = true;
 
-            case ENROLL -> {
-                new Enroll().enrollStudent(command[1],command[2],Integer.parseInt(command[3]), command[4]);
+        } else if (openFile) {
+            switch (commandsEnum) {
+                case SAVE -> new Write().write(pathFile);
+
+                case SAVEAS -> new Write().write(command[1]);
+
+                //case HELP -> ;
+
+                case CLOSE -> {
+                    new Close().close();
+                    openFile = false;
+                }
+                case EXIT ->  System.exit(0);
+
+                case ENROLL -> new Enroll().enrollStudent(command[1], command[2], Integer.parseInt(command[3]), command[4]);
+
+                case ADVANCE -> new Advance().AdvanceStudent(command[1]);
+
+                case CHANGE -> new Change().changeStudent(command[1], command[2], command[3]);
+
+                case GRADUATE -> new Graduate().graduateStudent(command[1]);
+
+                case INTERRUPT -> new Interrupt().interruptStudent(command[1]);
+
+                case RESUME -> new Resume().resumeStudent(command[1]);
+
+                case PRINT -> new Print().printStudent(command[1]);
+
+                case PRINTALL -> new PrintAll().printAllStudentsInSpecialtyAndCourse(command[1], Integer.parseInt(command[2]));
+
+                case ENROLLIN -> new EnrollIn().enrollInDiscipline(command[1], command[2]);
+
+                case ADDGRADE -> new AddGrade().addGrade(command[1], command[2], Integer.parseInt(command[3]));
+
+                case PROTOCOL -> new Protocol().protocolForDiscipline(command[1]);
+
+                case REPORT -> new Report().reportStudent(command[1]);
+
+                default -> throw new InvalidEnteredDataExceptions("Грешка! Въведена е навилидна операция!");
             }
-
-            case ADVANCE->{
-               // System.out.println("Факултетен номер: ");
-               // String fn = scanner.nextLine();
-                new Advance().AdvanceStudent(command[1]);
-            }
-
-            case CHANGE->{
-                /*System.out.println("Факултетен номер: ");
-                String fn = scanner.nextLine();
-                System.out.println("Опция(специалност/група/година): ");
-                String option = scanner.nextLine();
-                System.out.println("Стойност: ");
-                String value = scanner.nextLine();*/
-                new Change().changeStudent(command[1],command[2],command[3]);
-            }
-
-            case GRADUATE->{
-                /*System.out.println("Факултетен номер: ");
-                String fn = scanner.nextLine();*/
-                new Graduate().graduateStudent(command[1]);
-            }
-
-            case INTERRUPT->{
-                /*System.out.println("Факултетен номер: ");
-                String fn = scanner.nextLine();*/
-                new Interrupt().interruptStudent(command[1]);
-            }
-
-            case RESUME->{
-                /*System.out.println("Факултетен номер: ");
-                String fn = scanner.nextLine();*/
-                new Resume().resumeStudent(command[1]);
-            }
-
-            case PRINT->{
-                /*System.out.println("Факултетен номер: ");
-                String fn = scanner.nextLine();*/
-                new Print().printStudent(command[1]);
-            }
-
-            case PRINTALL -> {
-                /*System.out.println("Специалност: ");
-                String program = scanner.nextLine();
-                System.out.println("Курс:");
-                int course = scanner.nextInt();*/
-                new PrintAll().printAllStudentsInSpecialtyAndCourse(command[1],Integer.parseInt(command[2]));
-            }
-
-            case ENROLLIN -> {
-                /*System.out.println("Факултетен номер: ");
-                String fn = scanner.nextLine();
-                System.out.println("Дисциплина:");
-                String discipline = scanner.nextLine();*/
-                new EnrollIn().enrollInDiscipline(command[1],command[2]);
-            }
-
-            case ADDGRADE -> {
-               /* System.out.println("Факултетен номер: ");
-                String fn = scanner.nextLine();
-                System.out.println("Дисциплина:");
-                String discipline = scanner.nextLine();
-                System.out.println("Оценка:");
-                int grade=scanner.nextInt();*/
-                new AddGrade().addGrade(command[1],command[2],Integer.parseInt(command[3]));
-            }
-
-            case PROTOCOL -> {
-                /*System.out.println("Дисциплина:");
-                String discipline = scanner.nextLine();*/
-                new Protocol().protocolForDiscipline(command[1]);
-            }
-
-            case REPORT -> {
-                //System.out.println("Факултетен номер: ");
-                //String fn = scanner.nextLine();
-                new Report().reportStudent(command[1]);
-            }
-
-            default ->
-                throw new InvalidEnteredDataExceptions("Грешка! Въведена е навилидна операция!");
-
+            System.out.println("Успешно изпълнена операция " + commandsEnum.getCommandEnum() + "!");
         }
-        System.out.println("Успешно изпълнена операция " + commandsEnum.getCommandEnum() + "!");
     }
 }

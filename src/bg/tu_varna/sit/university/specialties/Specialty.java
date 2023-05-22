@@ -1,8 +1,8 @@
 package bg.tu_varna.sit.university.specialties;
 
 import bg.tu_varna.sit.exceptions.InvalidEnteredDataExceptions;
-import bg.tu_varna.sit.verifications.VerifyCourse;
-import bg.tu_varna.sit.verifications.VerifyString;
+import bg.tu_varna.sit.university.verifications.VerifyCourse;
+import bg.tu_varna.sit.university.verifications.VerifyString;
 
 import java.util.HashMap;
 import java.util.Map;

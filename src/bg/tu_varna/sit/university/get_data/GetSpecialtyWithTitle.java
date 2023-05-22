@@ -3,7 +3,7 @@ package bg.tu_varna.sit.university.get_data;
 import bg.tu_varna.sit.exceptions.InvalidEnteredDataExceptions;
 import bg.tu_varna.sit.university.specialties.Specialty;
 import bg.tu_varna.sit.university.specialties.SpecialtyList;
-import bg.tu_varna.sit.verifications.VerifyString;
+import bg.tu_varna.sit.university.verifications.VerifyString;
 
 public class GetSpecialtyWithTitle {
     public Specialty getSpecialtyFromList(String specialty) throws InvalidEnteredDataExceptions {

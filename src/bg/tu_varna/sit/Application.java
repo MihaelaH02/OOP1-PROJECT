@@ -1,15 +1,10 @@
 package bg.tu_varna.sit;
 
+import bg.tu_varna.sit.commands.SwitchCommands;
 import bg.tu_varna.sit.exceptions.InvalidEnteredDataExceptions;
-import bg.tu_varna.sit.operations.addgrade.AddGrade;
-import bg.tu_varna.sit.operations.advance.Advance;
-import bg.tu_varna.sit.operations.enroll.Enroll;
-import bg.tu_varna.sit.operations.enrollin.EnrollIn;
-import bg.tu_varna.sit.operations.protocol.Protocol;
+import bg.tu_varna.sit.commands.operations.protocol.Protocol;
 import bg.tu_varna.sit.university.enums.*;
 import bg.tu_varna.sit.university.specialties.*;
-import bg.tu_varna.sit.xml_file.read.Open;
-import bg.tu_varna.sit.xml_file.write.Write;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -18,7 +13,7 @@ import java.io.IOException;
 
 
 public class Application {
-    public static void main(String[] args) throws InvalidEnteredDataExceptions, ParserConfigurationException, TransformerException, IOException, SAXException {
+    public static void main(String[] args) throws Exception {
         Specialty sit = new Specialty("СИТ");
         sit.addElement(new Discipline("Математика 1", TypeOfTheDiscipline.MANDATORY),1);
         sit.addElement(new Discipline("Базово програмиране",TypeOfTheDiscipline.MANDATORY),1);
@@ -49,9 +44,9 @@ public class Application {
         new AddGrade().addGrade("21621562","Базово програмиране",6);
         new AddGrade().addGrade("21621562","Практика",4);
         new Advance().AdvanceStudent("21621562");*/
-        new Open().open();
-        new Protocol().protocolForDiscipline("Математика 1");
-
-        //new Write().write();
+        new SwitchCommands().runCommand(new String[]{"OPEN","C:\\Users\\MIHAELA\\Desktop\\OOP1-PROJECT\\University.xml"});
+        new SwitchCommands().runCommand(new String[]{"PROTOCOL", "Математика 1"});
+        new SwitchCommands().runCommand(new String[]{"CLOSE"});
+        new SwitchCommands().runCommand(new String[]{"PROTOCOL", "Математика 1"});
     }
 }

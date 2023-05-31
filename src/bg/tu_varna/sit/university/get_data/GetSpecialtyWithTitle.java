@@ -12,6 +12,6 @@ public class GetSpecialtyWithTitle {
         for (Specialty oneSpecialty : specialtyList.getAllSpecialties()) {
             if(oneSpecialty.getSpecialtyTitle() .equals(specialty.toUpperCase())) return oneSpecialty;
         }
-        throw new InvalidEnteredDataExceptions("Грешка! Специалността, която търсите не е намерена!");
+        throw new InvalidEnteredDataExceptions("failed, there are no program with such name");
     }
 }

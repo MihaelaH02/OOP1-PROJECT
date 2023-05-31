@@ -2,24 +2,24 @@ package bg.tu_varna.sit.commands;
 
 
 public enum CommandsEnum {
-    OPEN("отваряне на файл"),
-    CLOSE("затваряне на файл"),
-    SAVEAS("запиши като"),
-    SAVE("запиши "),
-    HELP("помощ"),
-    EXIT("изход от програмата"),
-    ENROLL("записване на студент"),
-    ADVANCE("записване студент в следващ курс"),
-    CHANGE("прехвърляне на студент в нова специалност, група или курс"),
-    GRADUATE("отбелязване на студент като завършил"),
-    INTERRUPT("маркиране на студент като прекъснал"),
-    RESUME("възстановяване на студентските права на студент"),
-    PRINT("извеждане на справка за студент"),
-    PRINTALL("извеждане на справка за всички студенти в дадена специалност и курс"),
-    ENROLLIN("записване на студент в дадена дисциплина"),
-    ADDGRADE("добавяне на оценка по дадена дисциплината на студент"),
-    PROTOCOL("извеждане на протоколи за всички студенти, записани в дадена дисциплина"),
-    REPORT("извеждане на академична справка за оценките на даден студент");
+    OPEN("opens <file> "),
+    CLOSE("closes currently opened file"),
+    SAVEAS("saves the currently open file"),
+    SAVE("saves the currently open file in"),
+    HELP("prints the information"),
+    EXIT("exists the program"),
+    ENROLL("enrolls student"),
+    ADVANCE("advances student in next year"),
+    CHANGE("changes program, group or year of the student"),
+    GRADUATE("marks status of the student to graduated"),
+    INTERRUPT("marks status of the student to discontinued"),
+    RESUME("marks status of the student to enrolled"),
+    PRINT("prints student reference"),
+    PRINTALL("prints reference for all students in program and year"),
+    ENROLLIN("enrolls student in discipline"),
+    ADDGRADE("adds grade in discipline for student"),
+    PROTOCOL("prints protocol for all enrolled students in discipline"),
+    REPORT("prints academic report of student's grades");
 
     private final String commandEnum;
 

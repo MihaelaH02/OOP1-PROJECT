@@ -10,6 +10,6 @@ public class GetStudentWithFacultyNumber {
         for (GradesForStudent oneStudentInArray : studentsList.getAllStudents()) {
             if (oneStudentInArray.getStudent().getFacultyNumber().equals(facultyNumber)) return oneStudentInArray;
         }
-        throw new InvalidEnteredDataExceptions("Грешка! Студент с факултете номер: " + facultyNumber + " несъществува!");
+        throw new InvalidEnteredDataExceptions("failed, there are no student with faculty number " + facultyNumber + ".");
     }
 }

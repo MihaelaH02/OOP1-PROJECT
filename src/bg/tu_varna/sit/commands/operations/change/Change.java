@@ -16,26 +16,26 @@ public class Change {
         GradesForStudent student = new GetStudentWithFacultyNumber().findStudentWithFacultyNumber(facultyNumber);
         if (student.getStudent().getStatus() == StatusEnum.ENROLL)
             switch (option) {
-                case "група" -> {
+                case "group" -> {
                     new VerifyGroup().verifyGroup(Integer.parseInt(value));
-                    if(Integer.parseInt(value) == student.getStudent().getGroup()) throw new InvalidEnteredDataExceptions("Грешка! Неуспешно променяне на група, студент с факултетен номер " + facultyNumber + " е вече в " + Integer.parseInt(value) + " група!");
+                    if(Integer.parseInt(value) == student.getStudent().getGroup()) throw new InvalidEnteredDataExceptions("failed in changing the group of the student with faculty number " + facultyNumber + ", he is already in this group.");
                     student.getStudent().setGroup(Integer.parseInt(value));
                 }
-                case "курс" -> {
+                case "year" -> {
                     new VerifyCourse().verifyCourse(Integer.parseInt(value));
-                    if((Integer.parseInt(value)-student.getStudent().getCourse()) != 1) throw new InvalidEnteredDataExceptions("Грешка! Прехвърляне в курс, различен от следващия, не е възможно!");
+                    if((Integer.parseInt(value)-student.getStudent().getCourse()) != 1) throw new InvalidEnteredDataExceptions("failed in changing the year of the student with faculty number" + facultyNumber + ", transferring to a year other than the next is not possible.");
                     new CheckIfStudentIsEnrollAllTheDisciplinesForTheCourse().checkForEnrollingAllTheDisciplinesForTheCourse(student,student.getStudent().getSpecialty());
                     new Advance().AdvanceStudent(facultyNumber);
                 }
-                case "специалност" -> {
+                case "program" -> {
                     Specialty specialty = new GetSpecialtyWithTitle().getSpecialtyFromList(value);
-                    if (specialty.getSpecialtyTitle().equals(student.getStudent().getSpecialty().getSpecialtyTitle())) throw new InvalidEnteredDataExceptions("Грешка! Студентът вече е записан в тази специалност!");
+                    if (specialty.getSpecialtyTitle().equals(student.getStudent().getSpecialty().getSpecialtyTitle())) throw new InvalidEnteredDataExceptions("failed in changing the program of the student with faculty number" + facultyNumber + ",he is already in this program.");
                     new CheckIfStudentIsEnrollAllTheDisciplinesForTheCourse().checkForEnrollingAllTheDisciplinesForTheCourse(student,specialty);
                     student.getStudent().setSpecialty(specialty);
                 }
-                default -> throw new InvalidEnteredDataExceptions("Грешка! Въвели сте невалидна опция!");
+                default -> throw new InvalidEnteredDataExceptions("failed in changes program, group or year of the student with faculty number " + facultyNumber + ", entered invalid option.");
             }
         else
-            throw new InvalidEnteredDataExceptions("Грешка! Неуспешно направени промени, студент с факултетн номер " + facultyNumber + " е прекъснал!");
+            throw new InvalidEnteredDataExceptions("failed in changes program, group or year of the student with faculty number " + facultyNumber + ", his status is not enroll.");
     }
 }

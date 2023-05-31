@@ -30,7 +30,7 @@ public class GradesForStudent {
     }
 
     public String toString(){
-        System.out.println("Записани дисциплини:");
+        System.out.println("Enrolled disciplines:");
         StringBuilder string = new StringBuilder();
         for (Map.Entry<Discipline, Integer> discipline: this.getMap().entrySet()  ) {
            string.append(discipline.getKey().getName())

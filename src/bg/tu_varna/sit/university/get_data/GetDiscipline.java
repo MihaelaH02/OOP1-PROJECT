@@ -12,6 +12,6 @@ public class GetDiscipline{
         for (Discipline oneDiscipline : specialty.keySet()) {
             if(oneDiscipline.getName().equals(discipline)) return oneDiscipline;
         }
-        throw new InvalidEnteredDataExceptions("Грешка! Дисциплината, която търсите не е намерена!");
+        throw new InvalidEnteredDataExceptions("failed, there are no discipline with such name");
     }
 }

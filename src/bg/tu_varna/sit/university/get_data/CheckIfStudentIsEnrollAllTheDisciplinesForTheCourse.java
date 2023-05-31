@@ -18,12 +18,12 @@ public class CheckIfStudentIsEnrollAllTheDisciplinesForTheCourse {
                         if (disciplineInSpecialty.getKey().getName().equals(disciplineInStudentList.getKey().getName())) {
                             findEnrolledDisciplineInStudentList = true;
                             if (disciplineInStudentList.getValue() <= 2)
-                                throw new InvalidEnteredDataExceptions("Грешка! Неуспешно положен изпит по дисциплина " + disciplineInStudentList.getKey().getName());
+                                throw new InvalidEnteredDataExceptions("failed, there are failed exam in discipline " + disciplineInStudentList.getKey().getName());
                             else break;
                         }
                     }
                     if (!findEnrolledDisciplineInStudentList)
-                        throw new InvalidEnteredDataExceptions("Грешка! Не са записани и положени изпити по всички дисциплини от настоящия ви курс!");
+                        throw new InvalidEnteredDataExceptions("failed, there are disciplines that are not enrolled and failed exams");
                 }
             }
         }

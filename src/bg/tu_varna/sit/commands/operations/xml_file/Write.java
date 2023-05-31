@@ -15,10 +15,14 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Map;
 
 public class Write {
-    public void write(String pathFile) throws ParserConfigurationException, TransformerException {
+    public void write(String pathFile) throws ParserConfigurationException, TransformerException, IOException {
+        new FileWriter(pathFile, false).close();
+
         StudentsList studentsList = StudentsList.getInstance();
 
         DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
@@ -90,6 +94,5 @@ public class Write {
         StreamResult streamResult = new StreamResult(new File(pathFile));
 
         transformer.transform(domSource, streamResult);
-        System.out.println("Done creating XML File");
     }
 }

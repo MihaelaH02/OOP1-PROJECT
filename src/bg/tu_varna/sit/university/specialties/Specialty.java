@@ -34,13 +34,13 @@ public class Specialty{
                 return entry.getValue();
             }
         }
-        throw new InvalidEnteredDataExceptions("Грешка! Дисциплината, която искате да достъпите не е налична!\"");
+        throw new InvalidEnteredDataExceptions("failed, there are no discipline with such name.");
     }
 
     public void printSpecialty() {
-        System.out.println("Специалност " + this.getSpecialtyTitle() + " :");
+        System.out.println("Program " + this.getSpecialtyTitle() + " :");
         for (Map.Entry<Discipline, Integer> discipline : this.getMap().entrySet()) {
-            System.out.println(discipline.getKey().getName() + " в  " + discipline.getValue() + " курс\n");
+            System.out.println(discipline.getKey().getName() + " в  " + discipline.getValue() + " year\n");
         }
     }
 }

@@ -69,6 +69,6 @@ public class Student{
 
     @Override
     public String toString() {
-        return  "Име: " + this.getName() + ", фн: " + this.getFacultyNumber() + ", статус: " + this.getStatus().getStatusEnum() + ", специалност: " + this.getSpecialty().getSpecialtyTitle() + ", курс: " + this.getCourse() + ", група: " + this.getGroup();
+        return  "Name: " + this.getName() + ", fn: " + this.getFacultyNumber() + ", status: " + this.getStatus().getStatusEnum() + ", program: " + this.getSpecialty().getSpecialtyTitle() + ", year: " + this.getCourse() + ", group: " + this.getGroup();
     }
 }

@@ -11,7 +11,7 @@ public class Enroll {
         StudentsList studentsList = StudentsList.getInstance();
         for (GradesForStudent oneStudent : studentsList.getAllStudents()) {
             if (oneStudent.getStudent().getFacultyNumber().equals(facultyNumber))
-                throw new InvalidEnteredDataExceptions("Грешка! Вече съществува студен с факултетен номер " + facultyNumber + " !");
+                throw new InvalidEnteredDataExceptions("failed in  enrolls student with faculty number " + facultyNumber + ", he is already enrolled.");
         }
         studentsList.getAllStudents().add(new GradesForStudent(new Student(name, facultyNumber, 1, program, group, StatusEnum.ENROLL)));
     }

@@ -12,6 +12,6 @@ public class AddGrade {
         if(student.getStudent().getStatus() == StatusEnum.ENROLL)
             student.putElement(new GetDiscipline().getDisciplineFromSpecialty(discipline,student.getMap()),garde);
         else
-            throw new InvalidEnteredDataExceptions("Грешка! Неуспешно преместване на студент в следващ курс, студен с факултете номер " + facultyNumber + " е прекъснал!");
+            throw new InvalidEnteredDataExceptions("failed in adding grade in discipline " + discipline + " for student with faculty number " + facultyNumber + ".");
     }
 }

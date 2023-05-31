@@ -23,6 +23,6 @@ public class PrintAll {
 
         }
 
-        if(!flagFindStudentInSpecialtyAndCourse) throw new InvalidEnteredDataExceptions("Грешка! Не са намерени студенти от спициалност " + specialty + " курс " + course + " !");
+        if(!flagFindStudentInSpecialtyAndCourse) throw new InvalidEnteredDataExceptions("failed printing reference for all students in program " + specialty + " and year " + course + " .");
     }
 }

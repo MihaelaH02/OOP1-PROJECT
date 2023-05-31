@@ -55,7 +55,7 @@ public class Open {
                     studentsList.addElement(gradesForStudent);
                 }
             }
-            System.out.println(">open " + pathFile + "\nSuccessfully open " + "!");
+            //System.out.println(">open " + pathFile + "\nSuccessfully open " + "!");
         }
         else if (!file.createNewFile()) throw new Exception();
     }

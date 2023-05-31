@@ -20,7 +20,7 @@ public class Protocol {
                     }
                 }
         }
-        System.out.println("Протоколи за дисциплина: " + discipline);
+        System.out.println("Protocol for discipline: " + discipline);
         studentsEnrolledInDiscipline.sort(new ListComparator());
         new PrintProtocols().printProtocols(studentsEnrolledInDiscipline);
     }

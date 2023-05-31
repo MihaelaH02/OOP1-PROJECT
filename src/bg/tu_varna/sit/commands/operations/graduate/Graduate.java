@@ -14,6 +14,6 @@ public class Graduate {
                 new CheckIfStudentIsEnrollAllTheDisciplinesForTheCourse().checkForEnrollingAllTheDisciplinesForTheCourse(student,student.getStudent().getSpecialty());
                 student.getStudent().setStatus(StatusEnum.GRADUATED);
             }
-        else throw new InvalidEnteredDataExceptions("Грешка! Студентът не е достигнал необходимия курс за да завърши!");
+        else throw new InvalidEnteredDataExceptions("failed in marking the status of the student with faculty number" +facultyNumber + " to graduated, the student is not in 4th year or his status is already marked as graduated.");
     }
 }

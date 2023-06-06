@@ -28,8 +28,4 @@ public class StudentsList {
         this.allStudents.add(student);
     }
 
-    public void removeElement(GradesForStudent student) {
-        this.allStudents.remove(student);
-    }
-
 }

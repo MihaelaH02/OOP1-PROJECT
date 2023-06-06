@@ -21,7 +21,12 @@ import java.util.Map;
 
 public class Write {
     public void write(String pathFile) throws ParserConfigurationException, TransformerException, IOException {
-        new FileWriter(pathFile, false).close();
+        File file = new File(pathFile);
+        if(file.length() > 0){
+            FileWriter fileWriter = new FileWriter(file);
+            fileWriter.write("");
+            fileWriter.close();
+        }
 
         StudentsList studentsList = StudentsList.getInstance();
 
@@ -91,8 +96,7 @@ public class Write {
         TransformerFactory transformerFactory = TransformerFactory.newInstance();
         Transformer transformer = transformerFactory.newTransformer();
         DOMSource domSource = new DOMSource(doc);
-        StreamResult streamResult = new StreamResult(new File(pathFile));
-
+        StreamResult streamResult = new StreamResult(file);
         transformer.transform(domSource, streamResult);
     }
 }

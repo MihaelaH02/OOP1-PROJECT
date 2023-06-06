@@ -26,7 +26,6 @@ public class Open {
             doc.getDocumentElement().normalize();
 
             NodeList studentInList = doc.getElementsByTagName("studentInList");
-
             for (int i = 0; i < studentInList.getLength(); i++) {
                 Element studentInListElement = (Element) studentInList.item(i);
 
@@ -38,6 +37,7 @@ public class Open {
                         studentElement.getElementsByTagName("specialty").item(0).getTextContent(),
                         Integer.parseInt(studentElement.getElementsByTagName("group").item(0).getTextContent()),
                         StatusEnum.valueOf(studentElement.getElementsByTagName("status").item(0).getTextContent().toUpperCase()));
+                GradesForStudent gradesForStudent = new GradesForStudent(student);
 
                 NodeList disciplinesWithGradeList = studentInListElement.getElementsByTagName("disciplinesWithGrade");
                 for (int j = 0; j < disciplinesWithGradeList.getLength(); j++) {
@@ -49,13 +49,10 @@ public class Open {
                             TypeOfTheDiscipline.valueOf(disciplineElement.getElementsByTagName("type").item(0).getTextContent().toUpperCase()));
 
                     Element gradeElement = (Element) disciplinesWithGradeElement.getElementsByTagName("grade").item(0);
-                    GradesForStudent gradesForStudent = new GradesForStudent(student);
                     gradesForStudent.putElement(discipline, Integer.parseInt(gradeElement.getElementsByTagName("disciplineGrade").item(0).getTextContent()));
-
-                    studentsList.addElement(gradesForStudent);
                 }
+                studentsList.addElement(gradesForStudent);
             }
-            //System.out.println(">open " + pathFile + "\nSuccessfully open " + "!");
         }
         else if (!file.createNewFile()) throw new Exception();
     }

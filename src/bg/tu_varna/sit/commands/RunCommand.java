@@ -1,5 +1,7 @@
 package bg.tu_varna.sit.commands;
 
+import java.util.ArrayList;
+
 public interface RunCommand {
-    void runCommand(String[] command) throws Exception;
+    void runCommand(ArrayList<String> commands) throws Exception;
 }

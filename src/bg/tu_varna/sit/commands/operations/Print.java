@@ -1,4 +1,4 @@
-package bg.tu_varna.sit.commands.operations.print;
+package bg.tu_varna.sit.commands.operations;
 
 import bg.tu_varna.sit.exceptions.InvalidEnteredDataExceptions;
 import bg.tu_varna.sit.university.get_data.GetStudentWithFacultyNumber;

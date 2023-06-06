@@ -1,47 +1,43 @@
 package bg.tu_varna.sit.commands;
 
+import bg.tu_varna.sit.commands.operations.*;
 import bg.tu_varna.sit.commands.operations.xml_file.Close;
 import bg.tu_varna.sit.commands.operations.xml_file.Open;
 import bg.tu_varna.sit.commands.operations.xml_file.Write;
-import bg.tu_varna.sit.commands.operations.addgrade.AddGrade;
-import bg.tu_varna.sit.commands.operations.advance.Advance;
-import bg.tu_varna.sit.commands.operations.change.Change;
-import bg.tu_varna.sit.commands.operations.enroll.Enroll;
-import bg.tu_varna.sit.commands.operations.enrollin.EnrollIn;
-import bg.tu_varna.sit.commands.operations.graduate.Graduate;
-import bg.tu_varna.sit.commands.operations.interrupt.Interrupt;
-import bg.tu_varna.sit.commands.operations.print.Print;
-import bg.tu_varna.sit.commands.operations.printall.PrintAll;
 import bg.tu_varna.sit.commands.operations.protocol.Protocol;
-import bg.tu_varna.sit.commands.operations.report.Report;
-import bg.tu_varna.sit.commands.operations.resume.Resume;
+
+import java.util.ArrayList;
 
 public class SwitchCommands implements RunCommand {
     private static boolean openFile=false;
     private static String pathFile;
-    public void runCommand(String[] commands) throws Exception {
-        CommandsEnum command = CommandsEnum.valueOf(commands[0].toUpperCase());
+    public void runCommand(ArrayList<String> commands) throws Exception {
+        CommandsEnum command = CommandsEnum.valueOf(commands.get(0).toUpperCase());
+
+        if(command == CommandsEnum.HELP) {
+            String[] params=new String[]{"<file>","","","<file>","","","<fn><program><group><name>","<fn>","<fn><option><value>","<fn>","<fn>","<fn>","<fn>","<program><year>","<fn><course>","<fn><course><grade>","<course>","<fn>"};
+            int i=0;
+            System.out.println("The following commands are supported:");
+            for (CommandsEnum cmd: CommandsEnum.values())
+                System.out.printf("%-35s %s%n",cmd.name().toLowerCase() + " " + params[i++],cmd.getCommandEnum());
+        }
+
         if (command == CommandsEnum.OPEN) {
-            pathFile = commands[1];
+            pathFile = commands.get(1);
             new Open().open(pathFile);
             openFile = true;
             for (int i = pathFile.length() - 1; i >= 0; i--)
                 if (pathFile.charAt(i) == '\\') {
-                    System.out.println("> open " + pathFile.substring(i + 1) + "\n");
+                    System.out.println("> open " + pathFile.substring(i + 1));
                     break;
                 }
+
         } else if (openFile) {
-            System.out.println("> " + command.name().toLowerCase() + "\n");
+            System.out.println("> " + command.name().toLowerCase());
             switch (command) {
                 case SAVE -> new Write().write(pathFile);
 
-                case SAVEAS -> new Write().write(commands[1]);
-
-                case HELP -> {
-                    System.out.println("The following commands are supported:\n");
-                    for (CommandsEnum cmd: CommandsEnum.values())
-                        System.out.println(cmd.name().toLowerCase() + "\t\t" + cmd.getCommandEnum() + "\n");
-                }
+                case SAVEAS -> new Write().write(commands.get(1));
 
                 case CLOSE -> {
                     new Close().close();
@@ -50,31 +46,31 @@ public class SwitchCommands implements RunCommand {
 
                 case EXIT ->  System.exit(0);
 
-                case ENROLL -> new Enroll().enrollStudent(commands[1], commands[2], Integer.parseInt(commands[3]), commands[4]);
+                case ENROLL -> new Enroll().enrollStudent(commands.get(1), commands.get(2), Integer.parseInt(commands.get(3)), commands.get(4));
 
-                case ADVANCE -> new Advance().AdvanceStudent(commands[1]);
+                case ADVANCE -> new Advance().AdvanceStudent(commands.get(1));
 
-                case CHANGE -> new Change().changeStudent(commands[1], commands[2], commands[3]);
+                case CHANGE -> new Change().changeStudent(commands.get(1), commands.get(2), commands.get(3));
 
-                case GRADUATE -> new Graduate().graduateStudent(commands[1]);
+                case GRADUATE -> new Graduate().graduateStudent(commands.get(1));
 
-                case INTERRUPT -> new Interrupt().interruptStudent(commands[1]);
+                case INTERRUPT -> new Interrupt().interruptStudent(commands.get(1));
 
-                case RESUME -> new Resume().resumeStudent(commands[1]);
+                case RESUME -> new Resume().resumeStudent(commands.get(1));
 
-                case PRINT -> new Print().printStudent(commands[1]);
+                case PRINT -> new Print().printStudent(commands.get(1));
 
-                case PRINTALL -> new PrintAll().printAllStudentsInSpecialtyAndCourse(commands[1], Integer.parseInt(commands[2]));
+                case PRINTALL -> new PrintAll().printAllStudentsInSpecialtyAndCourse(commands.get(1), Integer.parseInt(commands.get(2)));
 
-                case ENROLLIN -> new EnrollIn().enrollInDiscipline(commands[1], commands[2]);
+                case ENROLLIN -> new EnrollIn().enrollInDiscipline(commands.get(1), commands.get(2));
 
-                case ADDGRADE -> new AddGrade().addGrade(commands[1], commands[2], Integer.parseInt(commands[3]));
+                case ADDGRADE -> new AddGrade().addGrade(commands.get(1), commands.get(2), Integer.parseInt(commands.get(3)));
 
-                case PROTOCOL -> new Protocol().protocolForDiscipline(commands[1]);
+                case PROTOCOL -> new Protocol().protocolForDiscipline(commands.get(1));
 
-                case REPORT -> new Report().reportStudent(commands[1]);
+                case REPORT -> new Report().reportStudent(commands.get(1));
             }
-            System.out.println("Successfully " + command.name().toLowerCase() + " ");
+            System.out.println("Successfully " + command.name().toLowerCase());
         }
     }
 }

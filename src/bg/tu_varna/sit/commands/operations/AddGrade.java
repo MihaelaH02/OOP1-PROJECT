@@ -1,4 +1,4 @@
-package bg.tu_varna.sit.commands.operations.addgrade;
+package bg.tu_varna.sit.commands.operations;
 
 import bg.tu_varna.sit.exceptions.InvalidEnteredDataExceptions;
 import bg.tu_varna.sit.university.enums.StatusEnum;

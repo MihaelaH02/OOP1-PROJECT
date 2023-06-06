@@ -5,7 +5,7 @@ public enum CommandsEnum {
     OPEN("opens <file> "),
     CLOSE("closes currently opened file"),
     SAVEAS("saves the currently open file"),
-    SAVE("saves the currently open file in"),
+    SAVE("saves the currently open file in <file>"),
     HELP("prints the information"),
     EXIT("exists the program"),
     ENROLL("enrolls student"),

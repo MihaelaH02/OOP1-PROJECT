@@ -5,13 +5,10 @@ import bg.tu_varna.sit.university.enums.StatusEnum;
 import bg.tu_varna.sit.university.specialties.Discipline;
 import bg.tu_varna.sit.university.get_data.GetDiscipline;
 import bg.tu_varna.sit.university.get_data.GetStudentWithFacultyNumber;
-import bg.tu_varna.sit.university.specialties.Specialty;
-import bg.tu_varna.sit.university.specialties.SpecialtyList;
 import bg.tu_varna.sit.university.students.GradesForStudent;
 
 public class EnrollIn {
     public void enrollInDiscipline(String facultyNumber,String discipline) throws InvalidEnteredDataExceptions {
-        SpecialtyList list=SpecialtyList.getInstance();
         GradesForStudent student = new GetStudentWithFacultyNumber().findStudentWithFacultyNumber(facultyNumber);
         Discipline disciplineFromSpecialty=new GetDiscipline().getDisciplineFromSpecialty(discipline,student.getStudent().getSpecialty().getMap());
         if(student.getStudent().getStatus() == StatusEnum.ENROLL) {

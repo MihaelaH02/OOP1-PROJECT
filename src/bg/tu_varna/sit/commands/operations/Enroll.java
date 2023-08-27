@@ -7,8 +7,13 @@ import bg.tu_varna.sit.university.students.Student;
 import bg.tu_varna.sit.university.students.StudentsList;
 
 public class Enroll {
+    private final StudentsList studentsList;
+
+    public Enroll() {
+        this.studentsList = StudentsList.getInstance();
+    }
+
     public void enrollStudent(String facultyNumber, String program, int group, String name) throws InvalidEnteredDataExceptions {
-        StudentsList studentsList = StudentsList.getInstance();
         for (GradesForStudent oneStudent : studentsList.getAllStudents()) {
             if (oneStudent.getStudent().getFacultyNumber().equals(facultyNumber))
                 throw new InvalidEnteredDataExceptions("failed in  enrolls student with faculty number " + facultyNumber + ", he is already enrolled.");

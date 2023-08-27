@@ -9,6 +9,7 @@ public class Application {
         new AddSpecialties().addSpecialties();
         Scanner scanner=new Scanner(System.in);
         SwitchCommands commands=new SwitchCommands();
+
         while (true) {
             String input = scanner.nextLine();
             commands.runCommand(new GetCommandAndParams().getCommandAndParams(input));

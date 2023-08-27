@@ -24,11 +24,4 @@ public class SpecialtyList {
     public void addElement(Specialty specialty) {
         this.allSpecialties.add(specialty);
     }
-
-
-    public void printArray(){
-        for (Specialty specialty : this.getAllSpecialties()) {
-            System.out.println(specialty.getMap());
-        }
-    }
 }

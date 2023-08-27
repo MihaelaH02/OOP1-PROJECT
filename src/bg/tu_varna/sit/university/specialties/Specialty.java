@@ -36,11 +36,4 @@ public class Specialty{
         }
         throw new InvalidEnteredDataExceptions("failed, there are no discipline with such name.");
     }
-
-    public void printSpecialty() {
-        System.out.println("Program " + this.getSpecialtyTitle() + " :");
-        for (Map.Entry<Discipline, Integer> discipline : this.getMap().entrySet()) {
-            System.out.println(discipline.getKey().getName() + " в  " + discipline.getValue() + " year\n");
-        }
-    }
 }

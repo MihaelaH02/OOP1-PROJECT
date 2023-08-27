@@ -13,6 +13,7 @@ public class SwitchCommands implements RunCommand {
     private static String pathFile;
     public void runCommand(ArrayList<String> commands) throws Exception {
         CommandsEnum command = CommandsEnum.valueOf(commands.get(0).toUpperCase());
+        System.out.println("> " + command.name().toLowerCase());
 
         if(command == CommandsEnum.HELP) {
             String[] params=new String[]{"<file>","","","<file>","","","<fn><program><group><name>","<fn>","<fn><option><value>","<fn>","<fn>","<fn>","<fn>","<program><year>","<fn><course>","<fn><course><grade>","<course>","<fn>"};
@@ -22,18 +23,18 @@ public class SwitchCommands implements RunCommand {
                 System.out.printf("%-35s %s%n",cmd.name().toLowerCase() + " " + params[i++],cmd.getCommandEnum());
         }
 
-        if (command == CommandsEnum.OPEN) {
+        else if (command == CommandsEnum.EXIT){
+            System.out.println("Exit the program...");
+            System.exit(0);
+        }
+
+        else if (command == CommandsEnum.OPEN) {
             pathFile = commands.get(1);
             new Open().open(pathFile);
             openFile = true;
-            for (int i = pathFile.length() - 1; i >= 0; i--)
-                if (pathFile.charAt(i) == '\\') {
-                    System.out.println("> open " + pathFile.substring(i + 1));
-                    break;
-                }
+        }
 
-        } else if (openFile) {
-            System.out.println("> " + command.name().toLowerCase());
+        else if (openFile) {
             switch (command) {
                 case SAVE -> new Write().write(pathFile);
 
@@ -43,8 +44,6 @@ public class SwitchCommands implements RunCommand {
                     new Close().close();
                     openFile = false;
                 }
-
-                case EXIT ->  System.exit(0);
 
                 case ENROLL -> new Enroll().enrollStudent(commands.get(1), commands.get(2), Integer.parseInt(commands.get(3)), commands.get(4));
 
@@ -70,7 +69,7 @@ public class SwitchCommands implements RunCommand {
 
                 case REPORT -> new Report().reportStudent(commands.get(1));
             }
-            System.out.println("Successfully " + command.name().toLowerCase());
         }
+        System.out.println("Successfully " + command.name().toLowerCase());
     }
 }

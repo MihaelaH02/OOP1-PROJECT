@@ -1,8 +1,10 @@
 package bg.tu_varna.sit;
 
-import bg.tu_varna.sit.commands.GetCommandAndParams;
 import bg.tu_varna.sit.commands.SwitchCommands;
+
+import java.util.Arrays;
 import java.util.Scanner;
+
 
 public class Application {
     public static void main(String[] args) throws Exception {
@@ -12,7 +14,10 @@ public class Application {
 
         while (true) {
             String input = scanner.nextLine();
-            commands.runCommand(new GetCommandAndParams().getCommandAndParams(input));
+            System.out.println(Arrays.toString(input.split("\\s+ (?= (?:[^\"]*\"[^\"]*\") *[^\"]*$)")));
+            //System.out.println(Arrays.toString(input.split("\\s*(?<=\\s|^)\"|\"\\s*(?=\\s|$)\\s+")));
+
+            // commands.runCommand(input.split("\\s+"));
         }
     }
 }

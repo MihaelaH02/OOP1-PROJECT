@@ -2,7 +2,7 @@ package bg.tu_varna.sit.university.students;
 
 import bg.tu_varna.sit.exceptions.InvalidEnteredDataExceptions;
 import bg.tu_varna.sit.university.specialties.Discipline;
-import bg.tu_varna.sit.university.verifications.VerifyGrade;
+import bg.tu_varna.sit.university.verifications.ValidateData;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -25,7 +25,7 @@ public class GradesForStudent {
     }
 
     public void putElement(Discipline key, int value) throws InvalidEnteredDataExceptions {
-        new VerifyGrade().verifyGrade(value);
+        new ValidateData().verifyGrade(value);
         this.getMap().put(key, value);
     }
 

@@ -4,9 +4,7 @@ import bg.tu_varna.sit.exceptions.InvalidEnteredDataExceptions;
 import bg.tu_varna.sit.university.enums.*;
 import bg.tu_varna.sit.university.get_data.GetSpecialtyWithTitle;
 import bg.tu_varna.sit.university.specialties.Specialty;
-import bg.tu_varna.sit.university.verifications.VerifyCourse;
-import bg.tu_varna.sit.university.verifications.VerifyGroup;
-import bg.tu_varna.sit.university.verifications.VerifyString;
+import bg.tu_varna.sit.university.verifications.ValidateData;
 
 public class Student{
     private String name;
@@ -19,11 +17,11 @@ public class Student{
     public Student() {}
 
     public Student(String name, String facultyNumber, int course, String specialty, int group, StatusEnum status) throws InvalidEnteredDataExceptions {
-        this.name = (new VerifyString().verifyString(name));
-        this.facultyNumber = (new VerifyString().verifyString(facultyNumber));
-        this.course = (new VerifyCourse().verifyCourse(course));
+        this.name = (new ValidateData().verifyString(name));
+        this.facultyNumber = (new ValidateData().verifyString(facultyNumber));
+        this.course = (new ValidateData().verifyCourse(course));
         this.specialty = new GetSpecialtyWithTitle().getSpecialtyFromList(specialty);
-        this.group = (new VerifyGroup().verifyGroup(group));
+        this.group = (new ValidateData().verifyGroup(group));
         this.status = status;
     }
 

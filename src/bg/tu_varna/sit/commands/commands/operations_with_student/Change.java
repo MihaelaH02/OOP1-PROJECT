@@ -5,8 +5,7 @@ import bg.tu_varna.sit.university.get_data.CheckIfStudentIsEnrollAllTheDisciplin
 import bg.tu_varna.sit.university.enums.StatusEnum;
 import bg.tu_varna.sit.university.get_data.GetSpecialtyWithTitle;
 import bg.tu_varna.sit.university.specialties.Specialty;
-import bg.tu_varna.sit.university.verifications.VerifyCourse;
-import bg.tu_varna.sit.university.verifications.VerifyGroup;
+import bg.tu_varna.sit.university.verifications.ValidateData;
 
 public class Change extends FinedStudent {
     private final String option;
@@ -24,12 +23,12 @@ public class Change extends FinedStudent {
         if (super.getStudent().getStudent().getStatus() == StatusEnum.ENROLL)
             switch (option) {
                 case "group" -> {
-                    new VerifyGroup().verifyGroup(Integer.parseInt(value));
+                    new ValidateData().verifyGroup(Integer.parseInt(value));
                     if(Integer.parseInt(value) == super.getStudent().getStudent().getGroup()) throw new InvalidEnteredDataExceptions("failed in changing the group of the student, he is already in this group.");
                     super.getStudent().getStudent().setGroup(Integer.parseInt(value));
                 }
                 case "year" -> {
-                    new VerifyCourse().verifyCourse(Integer.parseInt(value));
+                    new ValidateData().verifyCourse(Integer.parseInt(value));
                     if((Integer.parseInt(value)-super.getStudent().getStudent().getCourse()) != 1) throw new InvalidEnteredDataExceptions("failed in changing the year of the student, transferring to a year other than the next is not possible.");
                     new CheckIfStudentIsEnrollAllTheDisciplinesForTheCourse().checkForEnrollingAllTheDisciplinesForTheCourse(super.getStudent(),super.getStudent().getStudent().getSpecialty());
                     super.getStudent().getStudent().setCourse(super.getStudent().getStudent().getCourse()+1);

@@ -4,7 +4,7 @@ import bg.tu_varna.sit.commands.ExecuteCommand;
 import bg.tu_varna.sit.exceptions.InvalidEnteredDataExceptions;
 import bg.tu_varna.sit.university.students.GradesForStudent;
 import bg.tu_varna.sit.university.students.StudentsList;
-import bg.tu_varna.sit.university.verifications.VerifyCourse;
+import bg.tu_varna.sit.university.verifications.ValidateData;
 
 public class PrintAll implements ExecuteCommand {
     private final String specialty;
@@ -17,7 +17,7 @@ public class PrintAll implements ExecuteCommand {
 
     @Override
     public void execute() throws Exception {
-        new VerifyCourse().verifyCourse(course);
+        new ValidateData().verifyCourse(course);
         StudentsList studentsList=StudentsList.getInstance();
         boolean flagFindStudentInSpecialtyAndCourse=false;
 

@@ -1,8 +1,7 @@
 package bg.tu_varna.sit.university.specialties;
 
 import bg.tu_varna.sit.exceptions.InvalidEnteredDataExceptions;
-import bg.tu_varna.sit.university.verifications.VerifyCourse;
-import bg.tu_varna.sit.university.verifications.VerifyString;
+import bg.tu_varna.sit.university.verifications.ValidateData;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,7 +11,7 @@ public class Specialty{
     private final Map<Discipline, Integer> disciplinesForSpecialty;
 
     public Specialty(String specialty) throws InvalidEnteredDataExceptions{
-           this.specialtyTitle = new VerifyString().verifyString(specialty);
+           this.specialtyTitle = new ValidateData().verifyString(specialty);
             this.disciplinesForSpecialty = new HashMap<>();
     }
 
@@ -25,7 +24,7 @@ public class Specialty{
     }
 
     public void addElement(Discipline key, Integer value) throws InvalidEnteredDataExceptions {
-        this.getMap().put(key,(new VerifyCourse().verifyCourse(value)));
+        this.getMap().put(key,(new ValidateData().verifyCourse(value)));
     }
 
     public Integer getValue(java.lang.String key) throws InvalidEnteredDataExceptions{//изведи в друг клас

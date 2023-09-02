@@ -2,8 +2,8 @@ package bg.tu_varna.sit.university.students;
 
 import bg.tu_varna.sit.exceptions.InvalidEnteredDataExceptions;
 import bg.tu_varna.sit.university.enums.*;
-import bg.tu_varna.sit.university.get_data.GetSpecialtyWithTitle;
 import bg.tu_varna.sit.university.specialties.Specialty;
+import bg.tu_varna.sit.university.specialties.SpecialtyList;
 import bg.tu_varna.sit.university.verifications.ValidateData;
 
 public class Student{
@@ -17,11 +17,11 @@ public class Student{
     public Student() {}
 
     public Student(String name, String facultyNumber, int course, String specialty, int group, StatusEnum status) throws InvalidEnteredDataExceptions {
-        this.name = (new ValidateData().verifyString(name));
-        this.facultyNumber = (new ValidateData().verifyString(facultyNumber));
-        this.course = (new ValidateData().verifyCourse(course));
-        this.specialty = new GetSpecialtyWithTitle().getSpecialtyFromList(specialty);
-        this.group = (new ValidateData().verifyGroup(group));
+        this.name = new ValidateData().verifyString(name);
+        this.facultyNumber = new ValidateData().verifyString(facultyNumber);
+        this.course = new ValidateData().verifyCourse(course);
+        this.specialty = SpecialtyList.getInstance().getSpecialtyFromList(new ValidateData().verifyString(specialty));
+        this.group = new ValidateData().verifyGroup(group);
         this.status = status;
     }
 

@@ -2,7 +2,7 @@ package bg.tu_varna.sit.commands.commands.operations_with_student;
 
 import bg.tu_varna.sit.exceptions.InvalidEnteredDataExceptions;
 import bg.tu_varna.sit.university.specialties.Discipline;
-import bg.tu_varna.sit.university.get_data.CalculateAverageGrade;
+
 import java.util.ArrayList;
 import java.util.Map;
 
@@ -32,6 +32,6 @@ public class Report extends FinedStudent {
                 System.out.println(discipline + " - " + " 2");
         }
 
-        System.out.println("\n Average success: " + String.format("%.2f", new CalculateAverageGrade().calculateTheAverageGradeOfStudent(super.getStudent().getMap())));
+        System.out.println("\n Average success: " + String.format("%.2f", super.getStudent().calculateTheAverageGradeOfStudent()));
     }
 }

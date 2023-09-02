@@ -9,19 +9,18 @@ import bg.tu_varna.sit.university.verifications.ValidateData;
 public class PrintAll implements ExecuteCommand {
     private final String specialty;
     private final int course;
+    private boolean flagFindStudentInSpecialtyAndCourse;
 
-    public PrintAll(String specialty, int course) {
+
+    public PrintAll(String specialty, int course) throws InvalidEnteredDataExceptions {
         this.specialty = specialty;
-        this.course = course;
+        this.course = new ValidateData().verifyCourse(course);
+        this.flagFindStudentInSpecialtyAndCourse=false;
     }
 
     @Override
     public void execute() throws Exception {
-        new ValidateData().verifyCourse(course);
-        StudentsList studentsList=StudentsList.getInstance();
-        boolean flagFindStudentInSpecialtyAndCourse=false;
-
-        for (GradesForStudent oneStudent : studentsList.getAllStudents()) {
+        for (GradesForStudent oneStudent : StudentsList.getInstance().getAllStudents()) {
             if (oneStudent.getStudent().getSpecialty().getSpecialtyTitle().equals(specialty.toUpperCase()))
                 if(oneStudent.getStudent().getCourse() == course) {
                     System.out.println(oneStudent.getStudent().toString());

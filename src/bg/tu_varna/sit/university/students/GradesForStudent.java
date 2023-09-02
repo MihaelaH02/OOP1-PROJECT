@@ -25,8 +25,22 @@ public class GradesForStudent {
     }
 
     public void putElement(Discipline key, int value) throws InvalidEnteredDataExceptions {
-        new ValidateData().verifyGrade(value);
-        this.getMap().put(key, value);
+        this.getMap().put(key, new ValidateData().verifyGrade(value));
+    }
+    public Discipline getEnrolledDisciplines(String discipline) throws InvalidEnteredDataExceptions {
+        for (Discipline oneDiscipline : this.disciplinesWithGrade.keySet()) {
+            if (oneDiscipline.getName().equals(discipline))
+                return oneDiscipline;
+        }
+        throw new InvalidEnteredDataExceptions("failed, there are no enrolled discipline with such name");
+    }
+
+    public double calculateTheAverageGradeOfStudent(){
+        double averageGrade=0;
+        for (Integer grade : disciplinesWithGrade.values()) {
+            averageGrade+=grade;
+        }
+        return averageGrade/disciplinesWithGrade.size();
     }
 
     public String toString(){

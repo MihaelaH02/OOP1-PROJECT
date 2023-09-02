@@ -11,7 +11,7 @@ public class Discipline {
     public Discipline() {}
 
     public Discipline(String name, TypeOfTheDiscipline typeOfTheDiscipline) throws InvalidEnteredDataExceptions{
-        this.name = (new ValidateData().verifyString(name));
+        this.name = new ValidateData().verifyString(name);
         this.typeOfTheDiscipline = typeOfTheDiscipline;
     }
 
@@ -22,6 +22,7 @@ public class Discipline {
     public TypeOfTheDiscipline getTypeOfTheDiscipline() {
         return typeOfTheDiscipline;
     }
+
 
     @Override
     public String toString() {

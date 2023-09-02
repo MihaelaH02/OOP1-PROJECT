@@ -3,14 +3,14 @@ package bg.tu_varna.sit.commands.commands.operations_with_student;
 import bg.tu_varna.sit.exceptions.InvalidEnteredDataExceptions;
 import bg.tu_varna.sit.university.enums.StatusEnum;
 import bg.tu_varna.sit.university.specialties.Discipline;
-import bg.tu_varna.sit.university.get_data.GetDiscipline;
+import bg.tu_varna.sit.university.verifications.ValidateData;
 
 public class EnrollIn extends FinedStudent {
     private final Discipline discipline;
 
     public EnrollIn(String facultyNumber,String discipline) throws InvalidEnteredDataExceptions {
         super(facultyNumber);
-        this.discipline=new GetDiscipline().getDisciplineFromSpecialty(discipline,super.getStudent().getStudent().getSpecialty().getMap());
+        this.discipline = super.getStudent().getStudent().getSpecialty().getDisciplineFromSpecialty(new ValidateData().verifyString(discipline));
     }
 
     @Override

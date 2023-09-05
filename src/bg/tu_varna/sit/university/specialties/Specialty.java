@@ -27,17 +27,15 @@ public class Specialty {
         this.getMap().put(key, (new ValidateData().verifyCourse(value)));
     }
 
-    public Integer getValue(java.lang.String key) throws InvalidEnteredDataExceptions {//изведи в друг клас
+    public Integer getValue(String key) throws InvalidEnteredDataExceptions {
         for (Map.Entry<Discipline, Integer> entry : getMap().entrySet()) {
-            if (entry.getKey().getName().equals(key)) {
+            if (entry.getKey().getName().equals(key))
                 return entry.getValue();
-            }
         }
         throw new InvalidEnteredDataExceptions("failed, there are no discipline with such name.");
     }
 
-    public Discipline getDisciplineFromSpecialty(String discipline) throws InvalidEnteredDataExceptions {
-        new ValidateData().verifyString(discipline);
+    public Discipline getKey(String discipline) throws InvalidEnteredDataExceptions {
         for (Discipline oneDiscipline : this.disciplinesForSpecialty.keySet()) {
             if (oneDiscipline.getName().equals(discipline))
                 return oneDiscipline;

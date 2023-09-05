@@ -10,21 +10,6 @@ public class Application {
 
         SwitchCommands commands = new SwitchCommands();
         commands.runCommand();
-
-           /* ArrayList<String> result = new ArrayList<>();
-            Pattern pattern = Pattern.compile("\"([^\"]*)\"|\\S+");
-            Matcher matcher = pattern.matcher(input);
-
-            while (matcher.find()) {
-                if (matcher.group(1) != null) {
-                    // Ако съвпадение е в двойни кавички, добавете групата в резултата
-                    result.add(matcher.group(1));
-                } else {
-                    // Ако няма двойни кавички, добавете съвпадението без интервали
-                    result.add(matcher.group());
-                }
-            }
-            String[] str =result.toArray(new String[0]);*/
     }
 }
 

@@ -10,7 +10,7 @@ public class EnrollIn extends FinedStudent {
 
     public EnrollIn(String facultyNumber,String discipline) throws InvalidEnteredDataExceptions {
         super(facultyNumber);
-        this.discipline = super.getStudent().getStudent().getSpecialty().getDisciplineFromSpecialty(new ValidateData().verifyString(discipline));
+        this.discipline = super.getStudent().getStudent().getSpecialty().getKey(new ValidateData().verifyString(discipline));
     }
 
     @Override

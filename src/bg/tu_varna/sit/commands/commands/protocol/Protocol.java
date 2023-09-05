@@ -9,17 +9,32 @@ import java.util.List;
 
 public class Protocol implements ExecuteCommand {
     private final String discipline;
+    private final List<GradesForStudent> studentsEnrolledInDiscipline;
 
     public Protocol(String discipline) {
         this.discipline = discipline;
+        this.studentsEnrolledInDiscipline = new ArrayList<>();
+    }
+
+    public String toString(){
+        StringBuilder output = new StringBuilder();
+        for (int i = 0; i < studentsEnrolledInDiscipline.size(); i++){
+            if((i==0) || !(studentsEnrolledInDiscipline.get(i-1).getStudent().getSpecialty().getSpecialtyTitle().equals(studentsEnrolledInDiscipline.get(i).getStudent().getSpecialty().getSpecialtyTitle()))) {
+                output.append("\nProgram: ").append(studentsEnrolledInDiscipline.get(i).getStudent().getSpecialty().getSpecialtyTitle());
+                output.append("\nYear: ").append(studentsEnrolledInDiscipline.get(i).getStudent().getCourse());
+            }
+
+            else if(studentsEnrolledInDiscipline.get(i-1).getStudent().getCourse() != studentsEnrolledInDiscipline.get(i).getStudent().getCourse())
+                output.append("\nYear: ").append(studentsEnrolledInDiscipline.get(i).getStudent().getCourse());
+
+            output.append("\n").append(studentsEnrolledInDiscipline.get(i).getStudent().toString());
+        }
+        return output.toString();
     }
 
     @Override
     public void execute() throws Exception {
-        StudentsList studentsList = StudentsList.getInstance();
-
-        List<GradesForStudent> studentsEnrolledInDiscipline = new ArrayList<>();
-        for (GradesForStudent oneStudentInArray : studentsList.getAllStudents()) {
+        for (GradesForStudent oneStudentInArray : StudentsList.getInstance().getAllStudents()) {
             if (!oneStudentInArray.getMap().isEmpty())
                 for (Discipline enrolledDisciplineForStudent : oneStudentInArray.getMap().keySet()) {
                     if (enrolledDisciplineForStudent.getName().equals(discipline)) {
@@ -30,6 +45,6 @@ public class Protocol implements ExecuteCommand {
         }
         System.out.println("Protocol for discipline: " + discipline);
         studentsEnrolledInDiscipline.sort(new ListComparator());
-        new PrintProtocols().printProtocols(studentsEnrolledInDiscipline);
+        System.out.println(this);
     }
 }

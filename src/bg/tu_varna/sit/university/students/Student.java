@@ -7,14 +7,12 @@ import bg.tu_varna.sit.university.specialties.SpecialtyList;
 import bg.tu_varna.sit.university.verifications.ValidateData;
 
 public class Student{
-    private String name;
-    private String facultyNumber;
+    private final String name;
+    private final String facultyNumber;
     private int course;
     private Specialty specialty;
     private int group;
     private StatusEnum status;
-
-    public Student() {}
 
     public Student(String name, String facultyNumber, int course, String specialty, int group, StatusEnum status) throws InvalidEnteredDataExceptions {
         this.name = new ValidateData().verifyString(name);

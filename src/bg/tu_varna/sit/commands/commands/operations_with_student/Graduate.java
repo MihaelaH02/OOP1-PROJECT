@@ -1,7 +1,7 @@
 package bg.tu_varna.sit.commands.commands.operations_with_student;
 
 import bg.tu_varna.sit.exceptions.InvalidEnteredDataExceptions;
-import bg.tu_varna.sit.university.students.CheckIfStudentIsEnrollAllTheDisciplinesForTheCourse;
+import bg.tu_varna.sit.university.verifications.CheckIfStudentIsEnrollAllTheDisciplinesForTheCourse;
 import bg.tu_varna.sit.university.enums.StatusEnum;
 
 public class Graduate extends FinedStudent {

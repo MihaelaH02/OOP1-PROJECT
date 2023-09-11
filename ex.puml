@@ -1,0 +1,7 @@
+@startuml
+class bg.tu_varna.sit.exceptions.InvalidEnteredDataExceptions {
+}
+
+
+bg.tu_varna.sit.exceptions.Exception <|-- bg.tu_varna.sit.exceptions.InvalidEnteredDataExceptions
+@enduml

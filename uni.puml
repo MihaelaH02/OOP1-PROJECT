@@ -1,0 +1,95 @@
+@startuml
+enum TypeOfTheDiscipline {
++  MANDATORY
++  OPTIONAL
+- String typeOfDisciplineEnum
++ String getTypeOfDisciplineEnum()
+}
+
+class Discipline {
+ - String name
+ - TypeOfTheDiscipline typeOfTheDiscipline
+ + String getName()
+ + TypeOfTheDiscipline getTypeOfTheDiscipline()
+ + String toString()
+ }
+
+class Specialty {
+- String specialtyTitle
+- Map<Discipline,Integer> disciplinesForSpecialty
++ String getSpecialtyTitle()
++ Map<Discipline,Integer> getMap()
++ void addElement(Discipline,Integer)
++ Integer getValue(String)
++ Discipline getKey(String)
+}
+class SpecialtyList {
+- {static} SpecialtyList instance
+- List<Specialty> allSpecialties
++ {static} SpecialtyList getInstance()
++ List<Specialty> getAllSpecialties()
++ Specialty getSpecialtyFromList(String)
++ void addElement(Specialty)
+}
+
+enum StatusEnum {
++  ENROLL
++  DISCONTINUED
++  GRADUATED
+- String statusEnum
++ String getStatusEnum()
+}
+
+class Student {
+- String name
+- String facultyNumber
+- int course
+- Specialty specialty
+- int group
+- StatusEnum status
++ String getName()
++ String getFacultyNumber()
++ int getCourse()
++ void setCourse(int)
++ Specialty getSpecialty()
++ void setSpecialty(Specialty)
++ int getGroup()
++ void setGroup(int)
++ StatusEnum getStatus()
++ void setStatus(StatusEnum)
++ String toString()
+}
+
+class GradesForStudent {
+- Student student
+- Map<Discipline,Integer> disciplinesWithGrade
++ Map<Discipline,Integer> getMap()
++ Student getStudent()
++ void putElement(Discipline,int)
++ Discipline getEnrolledDisciplines(String)
++ double calculateTheAverageGradeOfStudent()
++ String toString()
+}
+class StudentsList {
+- {static} StudentsList instance
+- List<GradesForStudent> allStudents
++ {static} StudentsList getInstance()
++ {static} void setInstance(StudentsList)
++ List<GradesForStudent> getAllStudents()
++ void addElement(GradesForStudent)
+}
+
+class ValidateData {
++ int verifyCourse(int)
++ int verifyGrade(int)
++ int verifyGroup(int)
++ String verifyString(String)
+}
+class CheckIfStudentIsEnrollAllTheDisciplinesForTheCourse {
+- GradesForStudent student
+- boolean findEnrolledDisciplineInStudentList
++ void checkForEnrollingAllTheDisciplinesForTheCourse(Specialty)
+}
+
+
+@enduml

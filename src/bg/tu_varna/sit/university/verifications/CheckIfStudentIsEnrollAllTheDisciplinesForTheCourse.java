@@ -1,9 +1,10 @@
-package bg.tu_varna.sit.university.students;
+package bg.tu_varna.sit.university.verifications;
 
 import bg.tu_varna.sit.exceptions.InvalidEnteredDataExceptions;
 import bg.tu_varna.sit.university.enums.TypeOfTheDiscipline;
 import bg.tu_varna.sit.university.specialties.Discipline;
 import bg.tu_varna.sit.university.specialties.Specialty;
+import bg.tu_varna.sit.university.students.GradesForStudent;
 
 import java.util.Map;
 

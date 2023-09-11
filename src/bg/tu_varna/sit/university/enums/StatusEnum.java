@@ -3,7 +3,7 @@ package bg.tu_varna.sit.university.enums;
 public enum StatusEnum {
     ENROLL("enroll"),
     DISCONTINUED("discontinued"),
-    GRADUATED("graduate");
+    GRADUATED("graduated");
 
     private final String statusEnum;
 

@@ -17,11 +17,9 @@ import java.io.File;
 
 public class Open implements ExecuteCommand {
     private final String pathFile;
-
     public Open(String pathFile) {
         this.pathFile = pathFile;
     }
-
     @Override
     public void execute() throws Exception{
         File file = new File(pathFile);

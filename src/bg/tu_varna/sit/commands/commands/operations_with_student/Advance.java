@@ -11,8 +11,9 @@ public class Advance extends FinedStudent {
     @Override
     public void execute() throws InvalidEnteredDataExceptions {
         if(super.getStudent().getStudent().getCourse()==4) throw new InvalidEnteredDataExceptions("failed, the student is already in  4 year");
-        if(super.getStudent().getStudent().getStatus() == StatusEnum.ENROLL)
+        if(super.getStudent().getStudent().getStatus() == StatusEnum.ENROLL) {
             super.getStudent().getStudent().setCourse(super.getStudent().getStudent().getCourse() + 1);
+        }
         else throw new InvalidEnteredDataExceptions("failed in advancing student in next year.");
     }
 }

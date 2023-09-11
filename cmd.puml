@@ -1,0 +1,126 @@
+@startuml
+class Open {
+- String pathFile
++ void execute()
+}
+interface ExecuteCommand {
+~ void execute()
+}
+class PrintAll {
+- String specialty
+- int course
+- boolean flagFindStudentInSpecialtyAndCourse
++ void execute()
+}
+class ListComparator {
++ int compare(GradesForStudent,GradesForStudent)
+}
+class Interrupt {
++ void execute()
+}
+abstract class FinedStudent {
+- GradesForStudent student
+# GradesForStudent getStudent()
+- GradesForStudent findStudentWithFacultyNumber(String)
+}
+class Resume {
++ void execute()
+}
+class Report {
++ void execute()
+}
+class Change {
+- String option
+- String value
++ void execute()
+}
+class Write {
+- String pathFile
++ void execute()
+}
+class Advance {
++ void execute()
+}
+class Graduate {
++ void execute()
+}
+class EnrollIn {
+- Discipline discipline
++ void execute()
+}
+class AddGrade {
+- String discipline
+- int garde
++ void execute()
+}
+class Print {
++ void execute()
+}
+enum CommandsEnum {
++  OPEN
++  CLOSE
++  SAVEAS
++  SAVE
++  HELP
++  EXIT
++  ENROLL
++  ADVANCE
++  CHANGE
++  GRADUATE
++  INTERRUPT
++  RESUME
++  PRINT
++  PRINTALL
++  ENROLLIN
++  ADDGRADE
++  PROTOCOL
++  REPORT
+- String commandEnum
++ String getCommandEnum()
+}
+class Enroll {
+- StudentsList studentsList
+- String facultyNumber
+- String program
+- int group
+- String name
++ void execute()
+}
+class Protocol {
+- String discipline
+- List<GradesForStudent> studentsEnrolledInDiscipline
++ String toString()
++ void execute()
+}
+class SwitchCommands {
+- {static} boolean openFile
+- {static} String pathFile
++ void runCommand()
+}
+class Close {
++ void execute()
+}
+interface RunCLI {
+~ void runCommand()
+}
+
+
+ExecuteCommand <|.. Open
+ExecuteCommand <|.. PrintAll
+Comparator <|.. ListComparator
+FinedStudent <|-- Interrupt
+ExecuteCommand <|.. FinedStudent
+FinedStudent <|-- Resume
+FinedStudent <|-- Report
+FinedStudent <|-- Change
+ExecuteCommand <|.. Write
+FinedStudent <|-- Advance
+FinedStudent <|-- Graduate
+FinedStudent <|-- EnrollIn
+FinedStudent <|-- AddGrade
+FinedStudent <|-- Print
+ExecuteCommand <|.. Enroll
+ExecuteCommand <|.. Protocol
+RunCLI <|.. SwitchCommands
+ExecuteCommand <|.. Close
+@enduml

@@ -4,7 +4,6 @@ import bg.tu_varna.sit.exceptions.InvalidEnteredDataExceptions;
 import bg.tu_varna.sit.university.enums.StatusEnum;
 
 public class Resume extends FinedStudent {
-
     public Resume(String facultyNumber) throws InvalidEnteredDataExceptions {
         super(facultyNumber);
     }

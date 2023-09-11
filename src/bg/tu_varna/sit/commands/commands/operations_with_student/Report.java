@@ -17,7 +17,7 @@ public class Report extends FinedStudent {
         System.out.println("Student: " + super.getStudent().getStudent().toString());
 
         if(!super.getStudent().getMap().isEmpty()) {
-            System.out.println("\nAll taken exams:");
+            System.out.println("All taken exams:");
             for (Map.Entry<Discipline, Integer> oneEnrolledDiscipline : super.getStudent().getMap().entrySet()) {
                 if (oneEnrolledDiscipline.getValue() == 2)
                     disciplinesWithGrade2.add(oneEnrolledDiscipline.getKey());
@@ -27,11 +27,11 @@ public class Report extends FinedStudent {
         else throw new InvalidEnteredDataExceptions("failed printing report, there are no enrolled disciplines.");
 
         if(!disciplinesWithGrade2.isEmpty()) {
-            System.out.println("\nAll failed exams:");
+            System.out.println("All failed exams:");
             for (Discipline discipline : disciplinesWithGrade2)
                 System.out.println(discipline + " - " + " 2");
         }
 
-        System.out.println("\n Average success: " + String.format("%.2f", super.getStudent().calculateTheAverageGradeOfStudent()));
+        System.out.println("Average success: " + String.format("%.2f", super.getStudent().calculateTheAverageGradeOfStudent()));
     }
 }
